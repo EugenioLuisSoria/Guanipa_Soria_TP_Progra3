@@ -1,12 +1,12 @@
 :root {
   /* TONOS OSCUROS */
-  --verde-oscuro: #02503bff;
+  --verde-oscuro: #023c23ff;
   --violeta-oscuro: #6e2594ff;
   --amarillo-oscuro: #ecd444ff;
   --blanco-: #ffffffff;
   --naranja-oscuro: #c95917ff;
   /* TONOS CLAROS */
-  --verde-claro: #023c23ff;
+  --verde-claro: rgb(25, 131, 102);
   --violeta-claro: #eedef7ff;
   --amarillo-claro: #faf2c7ff;
   --blanco-claro: #f5f5f5ff;
@@ -15,10 +15,11 @@
 
 body {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 20vh 70vh 10vh;
   height: 100vh;
-  font: 1em "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 1.2em "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: var(--naranja-oscuro);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -29,25 +30,50 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  grid-column: 1 / 5;
+  grid-column: 1 / 8;
   grid-row: 1 / 2;
+  border-bottom: 5px var(--amarillo-oscuro) solid;
   width: 100%;
   height: 20vh;
   background-color: var(--violeta-claro);
 }
 
 main {
+  display: grid;
+  place-items: center;
   grid-column: 1 / 5;
   grid-row: 2 / 3;
   width: 100%;
   height: 70vh;
 }
 
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 2/4;
+  gap: 2rem;
+  width: 90%;
+  height: 75%;
+}
+.nav_raquetas {
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  border: 0.5vw solid black;
+}
+.nav_cuerdas {
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+  border: 0.5vw solid black;
+}
+
 footer {
-  grid-column: 1 / 5;
+  border-top: 10px var(--amarillo-claro) solid;
+  grid-column: 1 / 7;
   grid-row: 3 / 4;
   width: 100%;
   height: 10vh;
-  background-color: var(--verde-claro);
+  background-color: var(--verde-oscuro);
 }
-
