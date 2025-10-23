@@ -7,32 +7,37 @@
   <title>
     OPENsourceTENNIS
   </title>
+  <link rel='stylesheet' href='/css/modal.css' />
   <link rel='stylesheet' href='/css/style.css' />
 </head>
 
 <body>
   <!-- Modal de Bienvenida: se oculta al tocarse la pantalla (JS) -->
-  <div class="modal_bienvenida" id="modal_bienvenida">
-    <h2>HOLA! BIENVENIDO A Raquetapp</h2>
-    <br><br>
-    <p>Toca la pantalla para comenzar</p>
+  <div class="modal_bienvenida displayNone" id="modal_bienvenida">
+    <div class="contenidoModal">
+      <h2>HOLA! BIENVENIDO A Raquetapp</h2>
+      <br><br>
+      <p>Toca la pantalla para comenzar</p>
+    </div>
   </div>
 
   <!-- Header: es estático. Solo muestra logo y titulo -->
   <header>
     <img class="header_logo">
+    <h1>OPENsourceTENNIS</h1>
+    <p>Welcome to RaquetApp</p>
   </header>
-  <h1>OPENsourceTENNIS</h1>
-
-  <p>Welcome to RaquetApp</p>
-  <nav>
-    <div class="nav_raquetas">
-      <img class="nav_img_raquetas">
-    </div>
-    <div class="nav_cuerdas">
-      <img class="nav_img_cuerdas">
-    </div>
-  </nav>
+  
+  <main>
+    <nav>
+      <div class="nav_raquetas">
+        <img class="nav_img_raquetas">
+      </div>
+      <div class="nav_cuerdas">
+        <img class="nav_img_cuerdas">
+      </div>
+    </nav>
+  </main>
 
   <!-- Header: es estático. Solo muestra logo y titulo / y en Desk muestra links a redes etc -->
   <footer></footer>

@@ -1,0 +1,66 @@
+/* Modal de bienvenida mejorado */
+.modal_bienvenida {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px); /* desenfoque del fondo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* transition: background 0.1s ease, opacity 0.8s ease; */
+}
+
+.contenidoModal {
+  background-color: var(--blanco-claro);
+  border: 2vh solid var(--verde-oscuro);
+  border-radius: 5vw 5vh;
+  padding: 5vh 10vw;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  /* transition: opacity 0.1s ease 0.1s, transform 0.3s ease 0.1s; */ /* el contenido se desvanece luego del fondo */
+}
+
+.contenidoModal h2 {
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  color: var(--violeta-oscuro);
+  animation: pulso 2.5s infinite alternate ease-in-out;
+}
+
+.contenidoModal p {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--verde-oscuro);
+}
+
+.displayNone {
+  animation: fadeOutModal 0.5s forwards;
+}
+
+@keyframes fadeOutModal {
+  0% {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  10% {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0);
+  }
+  100% {
+    opacity: 0;
+    background: rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes pulso {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
