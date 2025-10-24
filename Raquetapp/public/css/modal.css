@@ -38,6 +38,7 @@
 
 .displayNone {
   animation: fadeOutModal 0.5s forwards;
+  
 }
 
 @keyframes fadeOutModal {
@@ -50,6 +51,7 @@
     background: rgba(0, 0, 0, 0);
   }
   100% {
+    z-index: -1000;
     opacity: 0;
     background: rgba(0, 0, 0, 0);
   }
