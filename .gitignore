@@ -22,5 +22,3 @@ coverage/
 .vscode/
 .idea/
 
-#archivo de config individual
-.env
