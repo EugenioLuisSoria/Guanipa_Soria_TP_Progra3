@@ -17,11 +17,18 @@
 <body>
   <!-- Modal de Bienvenida: se oculta al tocarse la pantalla (JS)  --- displayNone -->
   <!-- REMOVER EL displayNone PARA QUE SE MUESTRE EN PRODUCCION -->
-  <div class="modal_bienvenida displayNone" id="modal_bienvenida">
+  <!-- <div class="modal_bienvenida displayNone" id="modal_bienvenida"> -->
+  <div class="modal_bienvenida " id="modal_bienvenida">
     <div class="contenidoModal">
       <h2>BIENVENIDO @ RaquetApp</h2>
       <br><br>
-      <p>Toca la pantalla para comenzar</p>
+      <p>Ingrese su nombre:</p>
+      <div>
+        <form>
+          <textarea id="nombreUsuario" name="nombreUsuario" placeholder="Raqueto Raquétez"></textarea>
+          <button type="submit">Aceptar</button>
+        </form>
+      </div>
     </div>
   </div>
 
