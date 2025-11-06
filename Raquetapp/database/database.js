@@ -6,7 +6,7 @@ const DB_PASSWORD = process.env.DB_PASSWORD || "root";
 // Configuración de conexión
 const sequelize = new Sequelize("raquetapp", DB_USER, DB_PASSWORD, {
     host: "localhost",
-    dialect: "mysql"
+    dialect: "mysql",
 });
 
 // Probar la conexión
