@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 
 // Configuración de conexión
-const sequelize = new Sequelize('raquetapp', 'root', '', {
+const sequelize = new Sequelize('raquetapp', 'root', '12345678', {
   host: 'localhost',
   dialect: 'mysql'
 });

@@ -13,6 +13,18 @@ const Producto = sequelize.define('Producto', {
   stock: {
     type: DataTypes.INTEGER,
     defaultValue: 0
+  },
+  categoria: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  imagen: {
+    type: DataTypes.STRING, //en sequlize escribe la ruta en string
+    allowNull: false
+  },
+  activo: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false
   }
 });
 
