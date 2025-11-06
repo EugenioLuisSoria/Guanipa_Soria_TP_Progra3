@@ -10,4 +10,13 @@ header {
     height: 20vh;
     background-color: var(--violeta-claro);
   }
-  
+
+  .header_logo {
+    position: relative;
+    top: 10%;
+    left: 10px;
+    width: 80px;         /* ajustá el tamaño a gusto */
+    height: auto;
+    object-fit: contain;
+    content: url("../../images/Raquetapp_img2.png"); /* ruta desde carpeta public */
+  }
