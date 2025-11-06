@@ -2,6 +2,12 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("./database");
 
 const Producto = sequelize.define("Producto", {
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false
+    },
     nombre: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -22,10 +28,14 @@ const Producto = sequelize.define("Producto", {
         type: DataTypes.NUMBER,
         allowNull: false,
     },
+    stock: {
+        type: DataTypes.NUMBER,
+        allowNull: true,
+    },
     activo: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
-    },
+    }
 });
 
 module.exports = Producto;

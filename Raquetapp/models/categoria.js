@@ -2,8 +2,13 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("./database");
 
 const Categoria = sequelize.define("Categoria", {
-    nombre: {
-        type: DataTypes.NUMBER,
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+    },
+    tipo: {
+        type: DataTypes.STRING,
         allowNull: false,
     }
 });
