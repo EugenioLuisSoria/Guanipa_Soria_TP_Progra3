@@ -10,10 +10,7 @@ const Producto = sequelize.define('Producto', {
     type: DataTypes.FLOAT,
     allowNull: false
   },
-  stock: {
-    type: DataTypes.INTEGER,
-    defaultValue: 0
-  },
+
   categoria: {
     type: DataTypes.STRING,
     allowNull: false
