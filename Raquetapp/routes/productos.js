@@ -1,8 +1,9 @@
 var express = require("express");
 var router = express.Router();
-const mainController = require("../controllers/mainController.js");
+const productosController = require("../controllers/productosController.js");
 
 /* GET home page. */
-router.get("/", mainController.home);
+router.get("/raquetas", productosController.getRaquetas);
+router.get("/cuerdas", productosController.getCuerdas);
 
 module.exports = router;

@@ -1,63 +1,114 @@
 :root {
-  /* TONOS OSCUROS */
   --verde-oscuro: #023c23ff;
   --violeta-oscuro: #6e2594ff;
   --amarillo-oscuro: #ecd444ff;
-  --blanco-: #ffffffff;
+  --blanco: #ffffff;
   --naranja-oscuro: #c95917ff;
-  /* TONOS CLAROS */
   --verde-claro: rgb(25, 131, 102);
-  --violeta-claro: #eedef7ff;
-  --amarillo-claro: #faf2c7ff;
-  --blanco-claro: #f5f5f5ff;
   --naranja-claro: #fbe6daff;
 }
 
+/* Layout general */
 body {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 20vh 70vh 10vh;
+  margin: 0;
+  padding: 0;
   height: 100vh;
   font: 1.2em "Lucida Grande", Helvetica, Arial, sans-serif;
   color: var(--naranja-oscuro);
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  background-color: var(--blanco);
+  display: flex;
+  flex-direction: column;
 }
 
+/* Main */
 main {
-  position: relative;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  grid-column: 3 / 5;
-  grid-row: 2 / 3;
-  width: 75vw;
-  height: 70vh;
 }
 
-nav {
-  position: relative;
-  width: 75%;
-  height: 70%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Grilla de productos */
+#items_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
   gap: 2rem;
-}
-.navs {
-  width: 100%;
-  height: 100%;
-  background-color: var(--naranja-claro);
-  border: 0.5vw solid var(--verde-claro);
-  box-shadow: 5px 5px 18px 9px rgba(0, 0, 0, 0.2);
-}
-.nav_raquetas {
-  border-radius: 2vh 5vw;
-}
-.nav_cuerdas {
-  border-radius: 5vh 2vw;
+  width: 80%;
+  max-width: 1200px;
+  justify-items: center;
+  align-items: stretch;
 }
 
-/* mejorar media queries de modal para MOBILE! */
+/* Tarjeta individual */
+.navs.nav_raquetas {
+  width: 100%;
+  max-width: 300px;
+  background-color: var(--naranja-claro);
+  border: 4px solid var(--verde-claro);
+  border-radius: 2vh 5vw;
+  box-shadow: 5px 5px 18px 9px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.navs.nav_raquetas:hover {
+  transform: scale(1.03);
+  box-shadow: 5px 5px 25px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Imagen del producto */
+.nav_img_raquetas {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 1vh;
+}
+
+/* Texto y botón */
+.nombre {
+  font-weight: bold;
+  color: var(--verde-oscuro);
+}
+
+.descripcion {
+  font-size: 0.9em;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+.precio {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  color: var(--violeta-oscuro);
+}
+
+.btn_agregar {
+  margin-top: 0.8rem;
+  background-color: var(--verde-oscuro);
+  color: var(--blanco);
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn_agregar:hover {
+  background-color: var(--verde-claro);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  #items_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  #items_grid {
+    grid-template-columns: 1fr;
+  }
+}

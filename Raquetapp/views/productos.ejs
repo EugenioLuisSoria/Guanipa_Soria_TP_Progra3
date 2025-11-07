@@ -7,9 +7,10 @@
   <title>
     OPENsourceTENNIS
   </title>
+  <link rel='stylesheet' href='/css/style.css' />
+  <link rel='stylesheet' href='/css/productos.css' />
   <link rel='stylesheet' href='/css/partials/1header.css' />
   <link rel='stylesheet' href='/css/partials/2footer.css' />
-  <link rel='stylesheet' href='/css/productos.css' />
 </head>
 
 <body>
@@ -17,20 +18,24 @@
   <%- include('./partials/1header.ejs') %>
 
     <main>
-      <nav>
-        <div class="navs nav_raquetas">
-          <p>NOMBRE PRODUCTO</p>
-          <p>DESCRIPCION</p>
-          <p>FOTO</p>
-          <p>PRECIO</p>
-          
-          <button>Agregar al Carrito</button>
-          <button>SIGUIENTE</button>
-          <button>ANTERIOR</button>
-          <img class="nav_img_raquetas">
-        </div>
-
-      </nav>
+      <div id="items_grid">
+        <% producto.forEach((p)=> { %>
+          <div class="navs nav_raquetas">
+            <p class="nombre">
+              <%= p.nombre %>
+            </p>
+            <p class="descripcion">
+              <%= p.descripcion %>
+            </p>
+            <a href="#">
+              <img class="nav_img_raquetas" src="<%= p.imagen %>" alt="<%= p.nombre %>">
+            </a>
+            <p class="precio">$<%= p.precio %>
+            </p>
+            <button class="btn_agregar">Agregar al Carrito</button>
+          </div>
+          <% }) %>
+      </div>
     </main>
 
     <!-- Footer: es estático. Solo muestra logo y titulo / y en Desk muestra links a redes etc -->
