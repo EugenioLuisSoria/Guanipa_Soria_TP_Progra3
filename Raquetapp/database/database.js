@@ -1,5 +1,5 @@
 const { Sequelize } = require("sequelize");
-const PORT = Number(process.env.PORT) || 3000;
+const PORT = Number(process.env.DB_PORT) || 8888;
 const DB_USER = process.env.DB_USER || "root";
 const DB_PASSWORD = process.env.DB_PASSWORD || "root";
 
@@ -7,6 +7,7 @@ const DB_PASSWORD = process.env.DB_PASSWORD || "root";
 const sequelize = new Sequelize("raquetapp", DB_USER, DB_PASSWORD, {
     host: "localhost",
     dialect: "mysql",
+    port: PORT
 });
 
 // Probar la conexión
