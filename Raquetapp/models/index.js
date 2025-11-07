@@ -1,11 +1,12 @@
 const Producto = require("./producto.js");
 const Categoria = require("./categoria.js");
+const Venta = require("./venta.js");
 const sequelize = require("../database/database.js");
-
-/* Producto.hasOne(Categoria, { foreignKey: "id_categoria" }); //va a agregar idUser a la tabla perfil
-Categoria.belongsTo(Producto, { foreignKey: "id_categoria" }); */
 
 Categoria.hasMany(Producto, { foreignKey: "categoria" });
 Producto.belongsTo(Categoria, { foreignKey: "categoria" });
 
-module.exports = { Producto, Categoria, sequelize };
+Producto.belongsToMany(Venta, { through: "VentaProducto", foreignKey: "producto_id" });
+Venta.belongsToMany(Producto, { through: "VentaProducto", foreignKey: "venta_id" });
+
+module.exports = { Producto, Categoria, Venta, sequelize };

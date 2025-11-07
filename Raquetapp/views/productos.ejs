@@ -20,6 +20,7 @@
     <main>
       <div id="items_grid">
         <% producto.forEach((p)=> { %>
+          <% if (p.activo){ %>
           <div class="navs nav_raquetas">
             <p class="nombre">
               <%= p.nombre %>
@@ -34,6 +35,7 @@
             </p>
             <button class="btn_agregar">Agregar al Carrito</button>
           </div>
+          <% } %>
           <% }) %>
       </div>
     </main>

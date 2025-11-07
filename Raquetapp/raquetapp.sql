@@ -62,7 +62,8 @@ INSERT INTO `Producto` (`id`, `nombre`, `descripcion`,`imagen`, `precio`, `categ
 DROP TABLE IF EXISTS `Categoria`;
 CREATE TABLE `Categoria` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `tipo` varchar(255) NOT NULL,
+  `tipo` TINYINT(1) UNSIGNED NOT NULL,
+
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -75,6 +76,74 @@ INSERT INTO `Categoria` (`id`, `tipo`) VALUES
 (2, 'cuerda'),
 (3, 'superRaqueta'),
 (4, 'superCuerda');
+
+-- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `Usuarios`
+--
+DROP TABLE IF EXISTS `Usuarios`;
+CREATE TABLE `Usuarios` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  `mail` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `tipo` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `Usuarios`
+--
+
+INSERT INTO `Usuarios` (`id`, `nombre`, `mail`, `password`, `tipo`) VALUES
+(1,'Pepe', 'pepe@gmail.com', '1234',0),
+(2,'Fulano', 'fulano@gmail.com', '1234',0),
+(3,'admin', 'admin@gmail.com', 'admin',1);
+
+-- --------------------------------------------------------
+
+
+--
+-- Estructura de tabla para la tabla `Ventas`
+--
+DROP TABLE IF EXISTS `Ventas`;
+CREATE TABLE `Ventas` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `producto` bigint(20) UNSIGNED NOT NULL,
+  `fecha` DATE NOT NULL,
+  `medio` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`producto`) REFERENCES `Producto`(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `Ventas`
+--
+
+INSERT INTO `Ventas` (`id`, `producto`, `fecha`, `medio`) VALUES
+(1, 9, '2025-2-5', 'tarjeta'),
+(2, 9, '2025-2-5', 'tarjeta'),
+(3, 9, '2025-2-5', 'tarjeta');
+
+
+-- --------------------------------------------------------
+
+CREATE TABLE VentaProducto (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  venta_id BIGINT UNSIGNED,
+  producto_id BIGINT UNSIGNED,
+  cantidad INT,
+  FOREIGN KEY (venta_id) REFERENCES Ventas(id),
+  FOREIGN KEY (producto_id) REFERENCES Producto(id)
+);
+--
+-- Volcado de datos para la tabla `VentaProducto`
+--
+
+INSERT INTO `VentaProducto` (`id`, `venta_id`,`producto_id`, `cantidad`) VALUES
+(1,1,9,1),
+(2,2,9,1),
+(3,3,9,1);
 
 -- --------------------------------------------------------
 
