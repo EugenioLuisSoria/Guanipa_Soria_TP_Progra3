@@ -26,8 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //rutas
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/raquetas', productosRouter);
-app.use('/cuerdas', productosRouter);
+app.use('/productos', productosRouter);
+
 
 /*  */
 // catch 404 and forward to error handler
@@ -45,7 +45,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-sequelize.sync({ alter: true })
+sequelize.sync({ alter: false })
   .then(() => {console.log('📦 Base de datos sincronizada')})
   .catch(err => console.error('❌ Error al sincronizar:', err));
 module.exports = app;
