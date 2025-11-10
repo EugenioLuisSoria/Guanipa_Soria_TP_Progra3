@@ -6,4 +6,7 @@ const productosController = require("../controllers/productosController.js");
 router.get("/raquetas", productosController.getRaquetas);
 router.get("/cuerdas", productosController.getCuerdas);
 
+router.get("/raquetas/:id", productosController.getOne);
+router.get("/cuerdas/:id", productosController.getOne);
+
 module.exports = router;

@@ -8,6 +8,7 @@ var createError = require('http-errors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productosRouter = require('./routes/productos');
+var carritoRouter = require('./routes/carrito');
 
 const sequelize = require('./database/database');
 
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/productos', productosRouter);
+app.use('/carrito', carritoRouter);
 
 
 /*  */

@@ -18,25 +18,28 @@
   <%- include('./partials/1header.ejs') %>
 
     <main>
+
+
+      
       <div id="items_grid">
         <% producto.forEach((p)=> { %>
           <% if (p.activo){ %>
-            <div class="navs nav_raquetas">
-              <p class="nombre">
-                <%= p.nombre %>
-              </p>
-              <p class="descripcion">
-                <%= p.descripcion %>
-              </p>
-              <a href="/productos/<%=tipo%>/<%= p.id%>">
-                <img class="nav_img_raquetas" src="<%= p.imagen %>" alt="<%= p.nombre %>">
-              </a>
-              <p class="precio">$<%= p.precio %>
-              </p>
-              <button class="btn_agregar">Agregar al Carrito</button>
-            </div>
-            <% } %>
-              <% }) %>
+          <div class="navs nav_raquetas">
+            <p class="nombre">
+              <%= p.nombre %>
+            </p>
+            <p class="descripcion">
+              <%= p.descripcion %>
+            </p>
+            <a href="#">
+              <img class="nav_img_raquetas" src="<%= p.imagen %>" alt="<%= p.nombre %>">
+            </a>
+            <p class="precio">$<%= p.precio %>
+            </p>
+            <button class="btn_agregar">Agregar al Carrito</button>
+          </div>
+          <% } %>
+          <% }) %>
       </div>
     </main>
 

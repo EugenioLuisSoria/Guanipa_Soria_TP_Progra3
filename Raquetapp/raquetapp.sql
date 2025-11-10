@@ -43,7 +43,7 @@ INSERT INTO `Producto` (`id`, `nombre`, `descripcion`,`imagen`, `precio`, `categ
 (7, 'RaquetPlusMega 7.0', 'No vas a poder creer lo que hace ', '/images/productos/raquetas/raqueta7.webp', 58917, 1 , 97, 1),
 (8, 'RaquetPlusMega 8.0', 'No vas a poder creer lo que hace ', '/images/productos/raquetas/raqueta8.webp', 58918, 1 , 98, 1),
 (9, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/raquetas/raqueta9.webp', 58919, 1 , 99, 1),
-(10, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerdas/cuerda.webp', 58919, 2 , 910, 1),
+(10, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerdas/cuerda1.webp', 58919, 2 , 910, 1),
 (11, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerdas/cuerda2.webp', 58919, 2 , 920, 1),
 (12, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerdas/cuerda3.webp', 58919, 2 , 930, 1),
 (13, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerdas/cuerda4.webp', 58919, 2 , 940, 1),
@@ -62,7 +62,7 @@ INSERT INTO `Producto` (`id`, `nombre`, `descripcion`,`imagen`, `precio`, `categ
 DROP TABLE IF EXISTS `Categoria`;
 CREATE TABLE `Categoria` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `tipo` TINYINT(1) UNSIGNED NOT NULL,
+  `tipo` varchar(255) NOT NULL,
 
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -72,10 +72,10 @@ CREATE TABLE `Categoria` (
 --
 
 INSERT INTO `Categoria` (`id`, `tipo`) VALUES
-(1, 'raqueta'),
-(2, 'cuerda'),
-(3, 'superRaqueta'),
-(4, 'superCuerda');
+(1, 'raquetas'),
+(2, 'cuerdas'),
+(3, 'superRaquetas'),
+(4, 'superCuerdas');
 
 -- --------------------------------------------------------
 --

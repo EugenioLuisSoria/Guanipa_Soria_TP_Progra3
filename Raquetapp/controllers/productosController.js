@@ -6,12 +6,12 @@ const productosController = {
             const producto = await db.Producto.findAll({
                 include: {
                     model: db.Categoria,
-                    where: { tipo: "raqueta" },
+                    where: { tipo: "raquetas" },
                 },
-                limit: 6
+                limit: 6,
             });
 
-            res.render("productos", { producto });
+            res.render("productos", { producto: producto, tipo: "raquetas" });
         } catch (error) {
             console.error("Error al obtener productos:", error);
             res.status(500).send("Error interno del servidor");
@@ -22,12 +22,23 @@ const productosController = {
             const producto = await db.Producto.findAll({
                 include: {
                     model: db.Categoria,
-                    where: { tipo: "cuerda" },
+                    where: { tipo: "cuerdas" },
                 },
             });
-
-            res.render("productos", { producto });
+            res.render("productos", { producto: producto, tipo: "cuerdas" });
         } catch (error) {
+            console.error("Error al obtener productos:", error);
+            res.status(500).send("Error interno del servidor");
+        }
+    },
+    getOne: async (req, res) => {
+        try {
+            let idOne = req.params.id;
+            const producto = await db.Producto.findAll({
+                where: { id: idOne },
+            });
+            res.render("item", { producto: producto });
+        } catch {
             console.error("Error al obtener productos:", error);
             res.status(500).send("Error interno del servidor");
         }
