@@ -33,7 +33,7 @@
               </a>
               <p class="precio">$<%= p.precio %>
               </p>
-              <button class="btn_agregar">Agregar al Carrito</button>
+              <button class="btn_agregar" data-id="<%= p.id %>">Agregar al Carrito</button>
             </div>
             <% } %>
               <% }) %>
@@ -44,6 +44,7 @@
     <%- include('./partials/2footer.ejs') %>
 
 
+      <script src="/js/item.js"></script>
 </body>
 
 </html>

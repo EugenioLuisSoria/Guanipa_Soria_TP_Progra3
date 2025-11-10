@@ -9,17 +9,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const nombreUsuarioSTORAGE = textarea.value.trim().toUpperCase();
 
         if (nombreUsuarioSTORAGE !== "") {
+            localStorage.clear();
             localStorage.setItem("nombreUsuarioSTORAGE", nombreUsuarioSTORAGE);
-            modal.classList.add("fadeOut");
 
+            modal.classList.add("fadeOut");
             /* para nombreUsuarioSTORAGE */
             const welcome = document.getElementById("welcomeNombre");
             welcome.textContent = `Welcome to RaquetApp, ${nombreUsuarioSTORAGE}`;
 
-            // Esperamos 1 segundo (duración del fade) y luego ocultamos el modal
+            // Esperamos 1/2 segundo (duración del fade) y luego ocultamos el modal
             setTimeout(() => {
                 modal.classList.add("displayNone");
-            }, 1000);
+            }, 500);
         } else {
             alert("Por favor, ingrese su nombre."); //MODIFICARLO PARA QUE SEA LINDO, Y APAREZCA NO COMO ALERT
         }
