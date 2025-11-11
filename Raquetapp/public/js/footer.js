@@ -1,12 +1,11 @@
-const carritoItems = JSON.parse(localStorage.getItem("carritoItems")) || [];
+function inicializarFooter() {
+    const linkCarrito = document.getElementById("aCarrito");
+    const carritoItems = JSON.parse(localStorage.getItem("carritoItems")) || [];
+    const query = carritoItems.join(",");
+  
+    linkCarrito.href = carritoItems.length > 0
+      ? `/carrito?ids=${query}`
+      : "/carrito";
+  }
 
-// Construimos la query tipo: ?ids=1,5,7
-const query = carritoItems.join(",");
-
-const linkCarrito = document.getElementById("aCarrito");
-
-if (carritoItems.length > 0) {
-    linkCarrito.href = `/carrito?ids=${query}`;
-} else {
-    linkCarrito.href = "/carrito";
-}
+  document.addEventListener("DOMContentLoaded", inicializarFooter);

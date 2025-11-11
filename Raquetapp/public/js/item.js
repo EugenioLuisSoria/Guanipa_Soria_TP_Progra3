@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
             let carritoOBJ = JSON.parse(localStorage.getItem("carritoItems")) || [];
             carritoOBJ.push(idItem);
             localStorage.setItem("carritoItems", JSON.stringify(carritoOBJ));
-            console.log(localStorage.getItem("carritoItems"));
+            console.log(localStorage.getItem("carritoItems")); //CONSOLE.LOG BORRRRRARRRR
+            inicializarFooter();
         });
     });
 });
