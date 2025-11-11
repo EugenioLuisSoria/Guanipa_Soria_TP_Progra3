@@ -59,6 +59,44 @@ nav {
 .nav_cuerdas {
   border-radius: 5vh 2vw;
 }
+/* Estilos para el Footer */
+footer {
+    /* El footer ocupa la última fila del grid principal */
+    grid-column: 1 / 7; /* Asegura que ocupe todo el ancho */
+    grid-row: 3 / 4; /* Asegura que esté en la última fila */
+    width: 100%;
+    
+    /* === ACOMODO HORIZONTAL Y VERTICAL === */
+    display: flex;
+    /* Reactivar la distribución horizontal de los bloques (nav, div de copyright, div de redes) */
+    justify-content: space-evenly; 
+    
+    /* Centra verticalmente todos los bloques dentro del footer */
+    align-items: center; 
+    
+    /* Estilo de fondo */
+    background-color: var(--verde-oscuro);
+    color: var(--blanco-claro);
+    
+    /* CORRECCIÓN: 'padding: 2 2px;' es inválido. Debe tener unidad o ser un valor fijo. */
+    padding: 10px 2px; 
+}
 
-
+/* === ESTO DEBE APLICARSE A LA LISTA, NO AL FOOTER === */
+#links_mobile {
+    display: flex; /* Para que los ítems de lista se muestren en línea */
+    gap: 15px; /* Espacio horizontal entre los ítems (MYSPACE, FOTOLOG, etc.) */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#links_mobile li {
+    /* Reduce la fuente al 80% del tamaño heredado (o puedes usar un valor fijo) */
+    font-size: 0.8em; 
+    
+    /* Asegúrate de que los enlaces se muestren de forma adecuada en el footer */
+    list-style: none; /* Quita las viñetas */
+    padding: 0;
+    margin: 0;
+}
 /* mejorar media queries de modal para MOBILE! */

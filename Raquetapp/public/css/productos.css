@@ -26,6 +26,8 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 320px;
+  margin: 0;
 }
 
 /* Grilla de productos */
@@ -33,8 +35,8 @@ main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, auto);
-  gap: 2rem;
-  width: 80%;
+  gap: 4rem;
+  width: 100%;
   max-width: 1200px;
   justify-items: center;
   align-items: stretch;
@@ -61,7 +63,7 @@ main {
 /* Imagen del producto */
 .nav_img_raquetas {
   width: 100%;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
   border-radius: 1vh;
 }
@@ -101,13 +103,13 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 900px) {
+@media (max-width: 1300px) {
   #items_grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   #items_grid {
     grid-template-columns: 1fr;
   }

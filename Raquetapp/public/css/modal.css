@@ -25,7 +25,7 @@
 .contenidoModal h2 {
   margin-bottom: 1rem;
   font-size: 2.5rem;
-  color: var(--violeta-oscuro);
+  color: var(--naranja-oscuro);
 }
 
 .contenidoModal p {
@@ -40,7 +40,50 @@
   animation: fadeOutModal 0.5s forwards;
   
 }
-
+.contenidoModal > div {
+    /* Usamos Flexbox para organizar el formulario */
+    display: flex;
+    /* Apilamos la caja de texto y el botón verticalmente */
+    flex-direction: column; 
+    /* Centra horizontalmente los elementos hijos (textarea y form) */
+    align-items: center; 
+    gap: 20px; /* Espacio vertical entre la etiqueta <p> y el formulario */
+}
+.contenidoModal form {
+    /* El formulario hereda el centrado del div padre, pero podemos asegurarnos */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el botón dentro del formulario */
+    width: 100%;
+    gap: 15px; /* Espacio entre la textarea y el botón */
+}
+#nombreUsuario {
+    width: 50%; /* Ocupa todo el ancho disponible del formulario */
+    max-width: 300px; /* Limita el ancho máximo para mejor lectura */
+    padding: 15px;
+    border: 3px solid var(--naranja-oscuro);
+    border-radius: 10px;
+    resize: none; /* Evita que el usuario la estire */
+    font-size: 1.2rem;
+    color: var(--verde-oscuro);
+}
+.contenidoModal button[type="submit"] {
+    width: 200px; 
+    padding: 12px 25px;
+    
+    /* Colores y diseño */
+    background-color: var(--verde-claro);
+    color: var(--blanco-claro); 
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.contenidoModal button[type="submit"]:hover {
+    background-color: var(--violeta-oscuro);
+}
 @keyframes fadeOutModal {
   0% {
     opacity: 1;
