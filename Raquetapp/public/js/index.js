@@ -18,6 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const welcome = document.getElementById("welcomeNombre");
             welcome.textContent = `Welcome to RaquetApp, ${nombreUsuarioSTORAGE}`;
 
+            //para desaparcer link a Carrito sin session:
+            /* const aCarritoLink = document.getElementById("aCarrito")
+            if (localStorage.getItem("sessionActiva" )== 1)
+            aCarritoLink.classList.toggle("displayNone" );  */
+
             // Esperamos 1/2 segundo (duración del fade) y luego ocultamos el modal
             setTimeout(() => {
                 modal.classList.add("displayNone");

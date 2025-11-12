@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
     form.addEventListener("submit", (e) => {
         let carritoItems = JSON.parse(localStorage.getItem("carritoItems")) || [];
         let nombreUsuario = localStorage.getItem("nombreUsuarioSTORAGE") 
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         inputUsuario.value = nombreUsuario;
     });
 });
+
 
 //USANDO FETCH:
 
