@@ -28,9 +28,16 @@
             <%= producto.nombre %>
           </p>
           <span>$<%= producto.precio %></span>
+          <button class="btn_agregar" data-id="<%= producto.id %>">Quitar del Carrito</button>
         </div>
         <% }) %>
     </div>
+    <form class="formPagar" action="/carrito/pagar" method="post">
+      <input type="hidden" name="nombreUsuario" id="inputUsuario">
+      <input type="hidden" name="productosParaPagar" id="inputProductos">
+      <button class="btnPagar" type="submit">PAGAR</button> <!--  -->
+    </form>
+
   </main>
   <%- include('./partials/2footer.ejs') %>
   <script src="/js/carrito.js"></script>
