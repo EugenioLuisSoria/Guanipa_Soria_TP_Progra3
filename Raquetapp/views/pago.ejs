@@ -16,31 +16,36 @@
 
 <body>
   <%- include('./partials/1header.ejs') %>
-  <main>
-    <h1>Generando orden de PAGO</h1>
+    <main>
+      <h1>Generando orden de PAGO</h1>
 
-    <div id="carrito" class="carrito">
-      
-      <% productos.forEach((producto)=> { %>
-        <div class="item">
-          <img src="<%= producto.imagen %>" alt="<%= producto.nombre %>">
-          <p>
-            <%= producto.nombre %>
-          </p>
-          <span>$<%= producto.precio %></span>
-          <button class="btn_agregar" data-id="<%= producto.id %>">Quitar del Carrito</button>
-        </div>
-        <% }) %>
-    </div>
-    <form class="formPagar" action="/carrito/pagar" method="post">
+      <div id="carrito" class="carrito">
+
+        <% productosBase.forEach((producto)=> { %>
+          <div class="item">
+            <img src="<%= producto.imagen %>" alt="<%= producto.nombre %>">
+            <p>
+              <%= producto.nombre %>
+            </p>
+            <p>
+              Cantidad del producto: <%= conteo[producto.id] %>
+            </p>
+            <span>$<%= producto.precio %></span>
+            <button class="btn_agregar" data-id="<%= producto.id %>">Quitar del Carrito</button>
+          </div>
+          <% }) %>
+      </div>
+      <!--   <form class="formPagar" action="/carrito/pagar" method="post">
       <input type="hidden" name="nombreUsuario" id="inputUsuario">
       <input type="hidden" name="productosParaPagar" id="inputProductos">
-      <button class="btnPagar" type="submit">PAGAR</button> <!--  -->
-    </form>
+      <button class="btnPagar" type="submit">PAGAR</button> 
+    </form> -->
+      <h2>Total: $<%= totalPago %>
+      </h2>
 
-  </main>
-  <%- include('./partials/2footer.ejs') %>
-  <script src="/js/carrito.js"></script>
+    </main>
+    <%- include('./partials/2footer.ejs') %>
+
 </body>
 
 </html>

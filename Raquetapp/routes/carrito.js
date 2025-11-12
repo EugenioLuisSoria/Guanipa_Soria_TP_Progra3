@@ -9,7 +9,7 @@ router.post("/pagar", carritoController.pagarCarrito);
 
 
 //SUMAR Y RESTAR PRODS DEL CARRITO
-//ES POR EL FRONT
+//VAN POR EL FRONT, por el localStore
 /* router.post('/agregar', carritoController.agregarCarrito);
 router.post('/eliminar', carritoController.eliminarCarrito);
 router.post('/actualizar', carritoController.actualizarCarrito); */

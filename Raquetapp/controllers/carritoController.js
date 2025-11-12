@@ -18,8 +18,27 @@ const carritoController = {
         let ids = req.body.productosParaPagar.split(",").map(Number);
         let nombreUsuario = req.body.nombreUsuario;
 
-        res.render("pago", { productosTotales });
-        res.send(`Pagando items:${ids} y yo soy ${nombreUsuario}`);
+        // Traemos los productos únicos
+        const productosBase = await db.Producto.findAll({
+            where: { id: [...new Set(ids)] },
+        });
+
+        // Reconstruimos el array manteniendo duplicados
+        const productosTotales = ids.map((id) => {
+            return productosBase.find((p) => p.id === id);
+        });
+
+        // Crea obj Conteo, donde {id: cantidadDeVecesRepetido}
+        const conteo = ids.reduce((acum, id) => {
+            acum[id] = (acum[id] || 0) + 1;
+            return acum;
+        }, {});
+
+        // Calculamos el total
+        totalPago = productosTotales.reduce((acum, producto) => {
+            return acum + Number(producto.precio);
+        }, 0);
+        res.render("pago", { productosBase, totalPago, conteo });
     },
 };
 
