@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (nombreUsuarioSTORAGE !== "") {
             localStorage.clear();
+            localStorage.setItem("sesionActiva", "1")  //ver pago.js que ahi FINALIZA la sesion en front, de la compra
             localStorage.setItem("nombreUsuarioSTORAGE", nombreUsuarioSTORAGE);
 
             modal.classList.add("fadeOut");
