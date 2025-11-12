@@ -6,9 +6,14 @@ router.get("/", carritoController.getCarrito);
 
 router.post("/pagar", carritoController.pagarCarrito);
 
-router.post('/agregar', carritoController.agregarCarrito);
+
+
+//SUMAR Y RESTAR PRODS DEL CARRITO
+//ES POR EL FRONT
+/* router.post('/agregar', carritoController.agregarCarrito);
 router.post('/eliminar', carritoController.eliminarCarrito);
-router.post('/actualizar', carritoController.actualizarCarrito);
+router.post('/actualizar', carritoController.actualizarCarrito); */
+
 
 
 
