@@ -9,6 +9,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productosRouter = require('./routes/productos');
 var carritoRouter = require('./routes/carrito');
+var registroRouter = require('./routes/registro')
+var loginRouter = require('./routes/login')
 
 const sequelize = require('./database/database');
 
@@ -29,6 +31,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/productos', productosRouter);
 app.use('/carrito', carritoRouter);
+app.use('/registro', registroRouter);
+app.use('/login', loginRouter);
 
 
 /*  */

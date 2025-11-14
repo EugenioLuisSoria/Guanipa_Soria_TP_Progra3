@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    OPENsourceTENNIS
+  </title>
+  <link rel="icon" type="image/x-icon" href="/favicon2.png">
+  <link rel='stylesheet' href='/css/modal.css' />
+  <link rel='stylesheet' href='/css/style.css' />
+  <link rel='stylesheet' href='/css/partials/1header.css' />
+  <link rel='stylesheet' href='/css/partials/2footer.css' />
+
+</head>
+
+<body>
+
+
+  <!-- Header: es estático. Solo muestra logo y titulo -->
+  <%- include('./partials/1header.ejs') %>
+
+    <main>
+      <form action="/login" name="=loginForm" method="POST">
+
+        <label for="email">Email:</label>
+        <input id="email" name="email" type="email" />
+
+        <label for="password">Contraseña:</label>
+        <input id="password" name="password" type="password" />
+
+        <button type="submit">Ingresar</button>
+        <button type="button">TESTER's AUTOCOMPLETE</button>
+      </form>
+    </main>
+
+   <!--  <script src="/js/login.js"></script> -->
+
+</body>
+
+</html>

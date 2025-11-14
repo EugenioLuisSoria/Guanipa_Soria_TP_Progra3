@@ -79,23 +79,23 @@ INSERT INTO `Categoria` (`id`, `tipo`) VALUES
 
 -- --------------------------------------------------------
 --
--- Estructura de tabla para la tabla `Usuarios`
+-- Estructura de tabla para la tabla `Usuario`
 --
-DROP TABLE IF EXISTS `Usuarios`;
-CREATE TABLE `Usuarios` (
+DROP TABLE IF EXISTS `Usuario`;
+CREATE TABLE `Usuario` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) NOT NULL,
   `mail` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `tipo` varchar(255) NOT NULL,
+  `tipo` TINYINT NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `Usuarios`
+-- Volcado de datos para la tabla `Usuario`
 --
 
-INSERT INTO `Usuarios` (`id`, `nombre`, `mail`, `password`, `tipo`) VALUES
+INSERT INTO `Usuario` (`id`, `nombre`, `mail`, `password`, `tipo`) VALUES
 (1,'Pepe', 'pepe@gmail.com', '1234',0),
 (2,'Fulano', 'fulano@gmail.com', '1234',0),
 (3,'admin', 'admin@gmail.com', 'admin',1);
@@ -128,13 +128,13 @@ INSERT INTO `Ventas` (`id`, `producto`, `fecha`, `medio`) VALUES
 
 -- --------------------------------------------------------
 
-CREATE TABLE VentaProducto (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  venta_id BIGINT UNSIGNED,
-  producto_id BIGINT UNSIGNED,
-  cantidad INT,
-  FOREIGN KEY (venta_id) REFERENCES Ventas(id),
-  FOREIGN KEY (producto_id) REFERENCES Producto(id)
+CREATE TABLE `VentaProducto` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `venta_id` BIGINT UNSIGNED,
+  `producto_id` BIGINT UNSIGNED,
+  `cantidad` INT,
+  FOREIGN KEY (`venta_id`) REFERENCES `Ventas`(id),
+  FOREIGN KEY (`producto_id`) REFERENCES `Producto`(id)
 );
 --
 -- Volcado de datos para la tabla `VentaProducto`
