@@ -21,9 +21,14 @@
 
     <main>
       <h1> HOLA, ADMIN!</h1>
+      <% if (typeof msj !=="undefined" && msj) { %>
+        <h2>
+          <%= msj %>
+        </h2>
+        <% } %>
     </main>
-    
-    
+
+
     <script src="/js/index.js"></script>
     <%- include('./partials/2footer.ejs') %>
 </body>

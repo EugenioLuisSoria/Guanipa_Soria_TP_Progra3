@@ -22,30 +22,32 @@
   <%- include('./partials/1header.ejs') %>
 
     <main>
-      <% if (typeof msj !== "undefined" && msj) { %>
-        <h2><%= msj %></h2>
-    <% } %>
-        <br/>
-      <form action="/registro" method="POST">
+      <% if (typeof msj !=="undefined" && msj) { %>
+        <h3>
+          <%= msj %>
+        </h3>
+        <% } %>
+          <br>
+          <form action="/registro" method="POST">
 
-        <label for="nombre">Nombre:</label>
-        <input id="nombre" name="nombre" type="text" required />
+            <label for="nombre">Nombre:</label>
+            <input id="nombre" name="nombre" type="text" required />
 
-        <label for="mail">Mail:</label>
-        <input id="mail" name="mail" type="email" required />
+            <label for="mail">Mail:</label>
+            <input id="mail" name="mail" type="email" required />
 
-        <label for="password">Password:</label>
-        <input id="password" name="password" type="password" required />
+            <label for="password">Password:</label>
+            <input id="password" name="password" type="password" required />
 
-        <label for="tipo">Tipo:</label>
-        <select id="tipo" name="tipo" required>
-          <option value="1">Admin</option>
-          <option value="0">Cliente</option>
-        </select>
+            <label for="tipo">Tipo:</label>
+            <select id="tipo" name="tipo" required>
+              <option value="1">Admin</option>
+              <option value="0">Cliente</option>
+            </select>
 
-        <button type="submit">Registrar</button>
+            <button type="submit">Registrar</button>
 
-      </form>
+          </form>
     </main>
 
     <!--  <script src="/js/login.js"></script> -->

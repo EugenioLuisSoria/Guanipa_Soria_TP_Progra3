@@ -1,6 +1,9 @@
 const db = require("../models/index.js");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
+const jwt = require("jsonwebtoken")
+const CLAVE_SECRETA = "Soy una clave secreta"; //esta const no debe quedarse aqui... deberia ir en .ENV
+
 
 const registroController = {
     home: (req, res) => {
@@ -12,8 +15,7 @@ const registroController = {
     },
     register: async (req, res) => {
         let { nombre, mail, password, tipo } = req.body;
-
-        console.log("BODY:", req.body);
+        tipo = Number(tipo);
 
         try {
             // Usuario existente
@@ -33,9 +35,17 @@ const registroController = {
                 mail,
                 password: hashedPass,
                 tipo: tipo ?? 0, // evita que sea undefined
+                /* tipo: tipo ?? 0, */ // evita que sea undefined
             });
 
-            return res.render("indexAdmin");
+            const token = jwt.sign({ nombre, mail, tipo }, CLAVE_SECRETA, { expiresIn: "5m", algorithm: "HS256" });
+
+
+            if (tipo === 1) {
+                return res.render("indexAdmin", {token, msj:"Login Exitoso"});
+            } else {
+                return res.render("index");
+            }
         } catch (error) {
             console.error("Error en registro:", error);
             return res.render("registro", { msj: "Error al registrar usuario" });
