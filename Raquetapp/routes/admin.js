@@ -3,8 +3,7 @@ var router = express.Router();
 const verificarToken = require("../middleware/verificarToken.js");
 const adminController = require("../controllers/adminController.js");
 const productosController = require("../controllers/productosController.js");
-const multer = require("multer");
-const upload = multer({ dest: "public/uploads/" });
+const upload = require("../middleware/multerMiddleware.js")
 
 router.get("/", verificarToken, adminController.home);
 

@@ -11,6 +11,11 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+DROP DATABASE IF EXISTS raquetapp;
+CREATE DATABASE raquetapp;
+USE raquetapp;
+
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -64,23 +69,23 @@ CREATE TABLE `Producto` (
 --
 
 INSERT INTO `Producto` (`id`, `nombre`, `descripcion`, `imagen`, `precio`, `categoria`, `stock`, `activo`) VALUES
-(1, 'RaquetPlusMega 1.0', 'No vas a poder creer lo que hace ', '/images/productos/raquetas/raqueta1.webp', 58911, 1, 91, 1),
-(2, 'RaquetPlusMega 2.0', 'No vas a poder creer lo que hace ', '/images/productos/raquetas/raqueta2.webp', 58912, 1, 92, 1),
-(3, 'RaquetPlusMega 3.0', 'No vas a poder creer lo que hace ', '/images/productos/raquetas/raqueta3.webp', 58913, 1, 93, 1),
-(4, 'RaquetPlusMega 4.0', 'No vas a poder creer lo que hace ', '/images/productos/raquetas/raqueta4.webp', 58914, 1, 94, 1),
-(5, 'RaquetPlusMega 5.0', 'No vas a poder creer lo que hace ', '/images/productos/raquetas/raqueta5.webp', 58915, 1, 95, 1),
-(6, 'RaquetPlusMega 6.0', 'No vas a poder creer lo que hace ', '/images/productos/raquetas/raqueta6.webp', 58916, 1, 96, 1),
-(7, 'RaquetPlusMega 7.0', 'No vas a poder creer lo que hace ', '/images/productos/raquetas/raqueta7.webp', 58917, 1, 97, 1),
-(8, 'RaquetPlusMega 8.0', 'No vas a poder creer lo que hace ', '/images/productos/raquetas/raqueta8.webp', 58918, 1, 98, 1),
-(9, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/raquetas/raqueta9.webp', 58919, 1, 99, 1),
-(10, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerdas/cuerda1.webp', 58919, 2, 910, 1),
-(11, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerdas/cuerda2.webp', 58919, 2, 920, 1),
-(12, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerdas/cuerda3.webp', 58919, 2, 930, 1),
-(13, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerdas/cuerda4.webp', 58919, 2, 940, 1),
-(14, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerdas/cuerda5.webp', 58919, 2, 950, 1),
-(15, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerdas/cuerda6.webp', 58919, 2, 960, 1),
-(16, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerdas/cuerda7.webp', 58919, 2, 970, 1),
-(17, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerdas/cuerda8.webp', 58919, 2, 980, 1);
+(1, 'RaquetPlusMega 1.0', 'No vas a poder creer lo que hace ', '/images/productos/raqueta1.webp', 58911, 1, 91, 1),
+(2, 'RaquetPlusMega 2.0', 'No vas a poder creer lo que hace ', '/images/productos/raqueta2.webp', 58912, 1, 92, 1),
+(3, 'RaquetPlusMega 3.0', 'No vas a poder creer lo que hace ', '/images/productos/raqueta3.webp', 58913, 1, 93, 1),
+(4, 'RaquetPlusMega 4.0', 'No vas a poder creer lo que hace ', '/images/productos/raqueta4.webp', 58914, 1, 94, 1),
+(5, 'RaquetPlusMega 5.0', 'No vas a poder creer lo que hace ', '/images/productos/raqueta5.webp', 58915, 1, 95, 1),
+(6, 'RaquetPlusMega 6.0', 'No vas a poder creer lo que hace ', '/images/productos/raqueta6.webp', 58916, 1, 96, 1),
+(7, 'RaquetPlusMega 7.0', 'No vas a poder creer lo que hace ', '/images/productos/raqueta7.webp', 58917, 1, 97, 1),
+(8, 'RaquetPlusMega 8.0', 'No vas a poder creer lo que hace ', '/images/productos/raqueta8.webp', 58918, 1, 98, 1),
+(9, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/raqueta9.webp', 58919, 1, 99, 1),
+(10, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda1.webp', 58919, 2, 910, 1),
+(11, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda2.webp', 58919, 2, 920, 1),
+(12, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda3.webp', 58919, 2, 930, 1),
+(13, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda4.webp', 58919, 2, 940, 1),
+(14, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda5.webp', 58919, 2, 950, 1),
+(15, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda6.webp', 58919, 2, 960, 1),
+(16, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda7.webp', 58919, 2, 970, 1),
+(17, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda8.webp', 58919, 2, 980, 1);
 
 -- --------------------------------------------------------
 

@@ -77,7 +77,7 @@ const productosController = {
             // SI VIENE IMAGEN DEL MULTER
             let imagenFinal = "";
             if (req.file) {
-                imagenFinal = "/uploads/" + req.file.filename;
+                imagenFinal = "/images/productos/" + req.file.filename;
             }
 
             // CREACIÓN DEL PRODUCTO
