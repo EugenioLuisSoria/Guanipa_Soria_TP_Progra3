@@ -38,7 +38,7 @@ const loginController = {
                     httpOnly: true,
                     maxAge: 5 * 60 * 1000,
                 });
-                return res.render("indexAdmin");
+                return res.render("admin/indexAdmin");
             } else {
                 return res.render("index");
             }

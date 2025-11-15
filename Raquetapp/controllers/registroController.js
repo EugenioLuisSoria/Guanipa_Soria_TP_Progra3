@@ -42,7 +42,7 @@ const registroController = {
 
 
             if (tipo === 1) {
-                return res.render("indexAdmin", {token, msj:"Login Exitoso"});
+                return res.render("admin/indexAdmin", {token, msj:"Login Exitoso"});
             } else {
                 return res.render("index");
             }
