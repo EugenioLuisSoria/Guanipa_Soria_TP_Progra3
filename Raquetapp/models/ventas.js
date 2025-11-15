@@ -1,8 +1,8 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../database/database.js");
+const sequelize = require("../database/database");
 
-const Venta = sequelize.define(
-    "Venta",
+const Ventas = sequelize.define(
+    "Ventas",
     {
         id: {
             type: DataTypes.BIGINT.UNSIGNED,
@@ -10,23 +10,19 @@ const Venta = sequelize.define(
             autoIncrement: true,
             allowNull: false,
         },
-        producto: {
-            type: DataTypes.BIGINT.UNSIGNED,
-            allowNull: false,
-        },
         fecha: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             allowNull: false,
         },
         medio: {
-            type: DataTypes.STRING, 
+            type: DataTypes.STRING(50),
             allowNull: false,
         }
     },
     {
-        tableName: "Venta",
+        tableName: "Ventas",
         timestamps: false,
     }
 );
 
-module.exports = Venta;
+module.exports = Ventas;
