@@ -22,7 +22,7 @@
   <%- include('./partials/1header.ejs') %>
 
     <main>
-      <form action="/login" name="=loginForm" method="POST">
+      <form action="/login" name="=loginForm" method="POST" id="form">
 
         <label for="mail">Email:</label>
         <input id="mail" name="mail" type="email" />
@@ -30,12 +30,12 @@
         <label for="password">Contraseña:</label>
         <input id="password" name="password" type="password" />
 
-        <button type="submit">Ingresar</button>
-        <button type="button">TESTER's AUTOCOMPLETE</button>
+        <button type="submit" id="btnSubmit">Ingresar</button>
+        <button type="button" id="btnTester">TESTER's AUTOCOMPLETE</button>
       </form>
     </main>
 
-   <!--  <script src="/js/login.js"></script> -->
+    <script src="/js/login.js"></script>
 
 </body>
 
