@@ -14,6 +14,7 @@ var carritoRouter = require("./routes/carrito");
 var registroRouter = require("./routes/registro");
 var loginRouter = require("./routes/login");
 var adminRouter = require("./routes/admin");
+var ticketRouter = require("./routes/ticket");
 
 const sequelize = require("./database/database");
 
@@ -38,6 +39,8 @@ app.use("/carrito", carritoRouter);
 app.use("/registro", registroRouter);
 app.use("/login", loginRouter);
 app.use("/admin", adminRouter);
+app.use("/tickets", ticketRouter);
+
 
 /*  */
 // catch 404 and forward to error handler

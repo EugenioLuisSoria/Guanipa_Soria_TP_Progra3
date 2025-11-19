@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket</title>
+  </head>
+  <body>
+    <h1>Ticket de la compra</h1>
+    <p>Número de ticket: <%= ticket.idticket %></p>
+    <p>Fecha: <%= ticket.fechaCompra %></p>
+    <p>Nombre del cliente: <%= ticket.cliente %></p>
+    <p>Producto: <%= ticket.producto %></p>
+    <p>Total: <%= ticket.total %></p>
+
+
+    <% if(ticket.esVista === true) { %>
+    <a href="http://localhost:3000/tickets/pdf?ids=<%= ticket.idticket %>" target="_blank">
+      Descargar Ticket</a
+    >
+    <% } %>
+  </body>
+</html>
