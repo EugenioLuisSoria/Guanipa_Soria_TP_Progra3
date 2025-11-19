@@ -95,6 +95,9 @@ CREATE TABLE `Ventas` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO `Ventas` (`id`, `fecha`, `medio`) VALUES
+(1, '1999-01-02', 'Tarjeta');
+
 -- ===========================================
 -- ============= TABLA VentaProducto =========
 -- ===========================================
@@ -113,5 +116,7 @@ CREATE TABLE `VentaProducto` (
   CONSTRAINT `ventaproducto_producto_fk`
     FOREIGN KEY (`producto_id`) REFERENCES `Producto` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `VentaProducto` (`id`, `venta_id`, `producto_id`, `cantidad`) VALUES
+(1, 1, 1, 9);
 
 COMMIT;

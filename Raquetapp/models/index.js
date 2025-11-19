@@ -11,4 +11,8 @@ Producto.belongsTo(Categoria, { foreignKey: "categoria" });
 Producto.belongsToMany(Ventas, { through: "VentaProducto", foreignKey: "producto_id" });
 Ventas.belongsToMany(Producto, { through: "VentaProducto", foreignKey: "venta_id" });
 
+/* Usuario.belongsToMany(Ventas, { through: "VentaProducto", foreignKey: "usuario_id" });
+Ventas.belongsToMany(Usuario, { through: "VentaProducto", foreignKey: "venta_id" }); */
+
+
 module.exports = { Producto, Categoria, Ventas, VentaProducto, Usuario, sequelize };
