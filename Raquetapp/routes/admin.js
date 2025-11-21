@@ -8,16 +8,16 @@ const upload = require("../middleware/multerMiddleware.js")
 router.get("/", verificarToken, adminController.home);
 
 /* RUTAS PARA QUE ADMIN PUEDA MODIFICAR PRODUCTOS */
-router.get("/raquetas", verificarToken, productosController.getRaquetas);
-router.get("/cuerdas", verificarToken, productosController.getCuerdas);
+router.get("/raquetas", verificarToken, productosController.getRaquetas_ADMIN);
+router.get("/cuerdas", verificarToken, productosController.getCuerdas_ADMIN);
 
-router.get("/raquetas/:id", verificarToken, productosController.getOne);
-router.get("/cuerdas/:id", verificarToken, productosController.getOne);
+router.get("/raquetas/:id", verificarToken, productosController.getOne_ADMIN);
+router.get("/cuerdas/:id", verificarToken, productosController.getOne_ADMIN);
 
-router.post("/raquetas/:id", verificarToken, productosController.deleteOne);
-router.post("/cuerdas/:id", verificarToken, productosController.deleteOne);
+router.post("/raquetas/:id", verificarToken, productosController.deleteOne_ADMIN);
+router.post("/cuerdas/:id", verificarToken, productosController.deleteOne_ADMIN);
 
-router.get("/nuevoProducto" ,verificarToken, productosController.nuevoProductoForm)
-router.post("/nuevoProducto", verificarToken, upload.single("imagen"), productosController.crear);
+router.get("/nuevoProducto" ,verificarToken, productosController.nuevoProductoForm_ADMIN)
+router.post("/nuevoProducto", verificarToken, upload.single("imagen"), productosController.crear_ADMIN);
 
 module.exports = router;

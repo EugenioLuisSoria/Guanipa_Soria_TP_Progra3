@@ -6,19 +6,20 @@ function inicializarFooter() {
     linkCarrito.href = carritoItems.length > 0 ? `/carrito?ids=${query}` : "/carrito";
 
     /* Para evitar que el modal del inicio se active siempre: */
+    const ruta = window.location.pathname;
     const modal = document.getElementById("modal_bienvenida");
-    if (localStorage.getItem("sesionActiva") == 1) {
-        modal.classList.add("displayNone");
+    if (ruta === "/") {
+        if (localStorage.getItem("sesionActiva") == 1) {
+            modal.classList.add("displayNone");
+        }
     }
     console.log(localStorage.getItem("sesionActiva"));
 
+    // Para que aparezca el boton carrito cuando hay items sumados al carro
     const aCarritoLink = document.getElementById("aCarrito");
     if (localStorage.getItem("carritoItems") > 0) {
         aCarritoLink.classList.remove("displayNone");
-    } /* else if(localStorage.getItem("carritoItems") == 0 || null || undefined) 
-    {
-        aCarritoLink.classList.add("displayNone")
-    } */
+    } 
 
     //boton SALIR:
     const btnSalir = document.getElementById("btnSalir");
@@ -26,11 +27,7 @@ function inicializarFooter() {
         e.preventDefault();
         localStorage.setItem("sesionActiva", "0");
         window.location.href = "/";
-        window.location.reload();
-        window.location.reload(); //si! hay que hacer dos veces este reload() ... AVERIGUAR POR QUÉ!!!!!!!!!!
     });
-
-    btnSalir.href = btnSalir.length > 0 ? `/carrito?ids=${query}` : "/carrito";
 }
 
 document.addEventListener("DOMContentLoaded", inicializarFooter);

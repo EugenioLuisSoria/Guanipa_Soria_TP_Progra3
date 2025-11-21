@@ -12,7 +12,7 @@ const productosController = {
                 limit: 6,
             });
 
-            res.render("admin/productosAdmin", { producto: producto, tipo: "raquetas" });
+            res.render("productos", { producto: producto, tipo: "raquetas" });
         } catch (error) {
             console.error("Error al obtener admin/productosAdmin:", error);
             res.status(500).send("Error interno del servidor");
@@ -26,7 +26,7 @@ const productosController = {
                     where: { tipo: "cuerdas" },
                 },
             });
-            res.render("admin/productosAdmin", { producto: producto, tipo: "cuerdas" });
+            res.render("productos", { producto: producto, tipo: "cuerdas" });
         } catch (error) {
             console.error("Error al obtener admin/productosAdmin:", error);
             res.status(500).send("Error interno del servidor");
@@ -38,13 +38,58 @@ const productosController = {
             const producto = await db.Producto.findAll({
                 where: { id: idOne },
             });
+            res.render("item", { producto: producto });
+        } catch {
+            console.error("Error al obtener admin/productosAdmin:", error);
+            res.status(500).send("Error interno del servidor");
+        }
+    },
+
+    //SOLO PARA ADMIN!!! :
+    //SOLO PARA ADMIN!!! :
+    getRaquetas_ADMIN: async (req, res) => {
+        try {
+            const producto = await db.Producto.findAll({
+                include: {
+                    model: db.Categoria,
+                    where: { tipo: "raquetas" },
+                },
+                limit: 6,
+            });
+
+            res.render("admin/productosAdmin", { producto: producto, tipo: "raquetas" });
+        } catch (error) {
+            console.error("Error al obtener admin/productosAdmin:", error);
+            res.status(500).send("Error interno del servidor");
+        }
+    },
+    getCuerdas_ADMIN: async (req, res) => {
+        try {
+            const producto = await db.Producto.findAll({
+                include: {
+                    model: db.Categoria,
+                    where: { tipo: "cuerdas" },
+                },
+            });
+            res.render("admin/productosAdmin", { producto: producto, tipo: "cuerdas" });
+        } catch (error) {
+            console.error("Error al obtener admin/productosAdmin:", error);
+            res.status(500).send("Error interno del servidor");
+        }
+    },
+    getOne_ADMIN: async (req, res) => {
+        try {
+            let idOne = req.params.id;
+            const producto = await db.Producto.findAll({
+                where: { id: idOne },
+            });
             res.render("admin/itemAdmin", { producto: producto });
         } catch {
             console.error("Error al obtener admin/productosAdmin:", error);
             res.status(500).send("Error interno del servidor");
         }
     },
-    deleteOne: async (req, res) => {
+    deleteOne_ADMIN: async (req, res) => {
         try {
             let idOne = req.params.id;
 
@@ -62,10 +107,10 @@ const productosController = {
             res.status(500).send("Error interno del servidor");
         }
     },
-    nuevoProductoForm: async (req, res) => {
-        res.render("admin/crearProductoAdmin")
+    nuevoProductoForm_ADMIN: async (req, res) => {
+        res.render("admin/crearProductoAdmin");
     },
-    crear: async (req, res) => {
+    crear_ADMIN: async (req, res) => {
         try {
             const { nombre, descripcion, precio, categoria, stock, activo } = req.body;
 
