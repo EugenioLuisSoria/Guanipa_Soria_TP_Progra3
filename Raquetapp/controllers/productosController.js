@@ -92,15 +92,22 @@ const productosController = {
         try {
             let idOne = req.params.id;
 
-            const eliminado = await db.Producto.destroy({
+            //ESTO ES PARA ELIMINAR DE DB:
+            /* const eliminado = await db.Producto.destroy({
                 where: { id: idOne },
-            });
-
+            }); 
             if (!eliminado) {
                 return res.status(404).send("Producto no encontrado");
-            }
+            } */
 
-            res.render("admin/productosAdmin", { msj: "Producto Eliminado" }); // o la vista que quieras
+            //TP PIDE "ELIMINAR" PONIENDO COMO INACTIVO EL PRODUCTO
+            let productoAinactivar = await db.Producto.update(
+                { activo: 0, },
+                { where: {id: idOne} }
+            );
+
+            res.render("admin/indexAdmin", { msj: "Producto Eliminado" }); // o la vista que quieras
+
         } catch (error) {
             console.error("Error al eliminar:", error);
             res.status(500).send("Error interno del servidor");
