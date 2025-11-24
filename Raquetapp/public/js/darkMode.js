@@ -2,14 +2,14 @@
 function activarDarkMode() {
     document.body.classList.add("dark");
 
-    // Guardar cookie por 1 año
-    document.cookie = "theme=dark; max-age=31536000; path=/";
+    // Guardar cookie por 5 minutos
+    document.cookie = "theme=dark; max-age=300; path=/";
 }
 
 function desactivarDarkMode() {
     document.body.classList.remove("dark");
 
-    document.cookie = "theme=light; max-age=31536000; path=/";
+    document.cookie = "theme=light; max-age=300; path=/";
 }
 
 
