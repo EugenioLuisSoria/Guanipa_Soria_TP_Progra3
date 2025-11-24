@@ -1,4 +1,5 @@
 const db = require("../models/index.js");
+const puppeteer = require("puppeteer");
 
 const ticketController = {
     getticket: async (req, res) => {
@@ -48,7 +49,7 @@ const ticketController = {
             //res.status(500).send("Error interno del servidor");
         }
     },
-
+    
     descargarticket: async (req, res) => {
         try {
             let ids = req.query.ids ? req.query.ids.split(",").map(Number) : [];
@@ -67,7 +68,12 @@ const ticketController = {
                 idticket: venta.id,
                 fechaCompra: venta.fecha,
                 medioPago: venta.medio,
-                nombreCliente: venta.nombre /* ,
+                nombreCliente: venta.nombre,
+                productos: venta.Productos.map(p => ({
+                    nombre: p.nombre,
+                    precio: p.precio,
+                    cantidad: p.VentaProducto.cantidad
+                })) /* ,
             cliente: venta.Usuario.nombre,
             emailCliente: venta.Usuario.mail,
             producto: venta.Producto.nombre,
@@ -76,7 +82,36 @@ const ticketController = {
             total: venta.Producto.precio * 1 */,
             };
 
-            res.render("ticket", { ticket });
+             // 👉 1. Renderizar la vista a HTML (sin enviarla al navegador)
+            const html = await new Promise((resolve, reject) => {
+                res.render("ticketPDF", { ticket }, (err, html) => {
+                    if (err) reject(err);
+                    else resolve(html);
+                });
+            });
+
+            const browser = await puppeteer.launch({
+                headless: "new"
+        });
+            const page = await browser.newPage();
+
+            await page.setContent(html, {
+                waitUntil: "networkidle0"
+            });
+
+            const pdfBuffer = await page.pdf({
+                format: "A4",
+                printBackground: true
+            });
+
+            await browser.close();
+
+        // 👉 3. Enviar PDF al navegador
+            res.setHeader("Content-Type", "application/pdf");
+            res.setHeader("Content-Disposition", `attachment; filename=ticket_${ticket.idticket}.pdf`);
+            res.send(pdfBuffer);
+
+        
         } catch (error) {
             console.error("Error al descargar el ticket:", error);
             res.status(500).send("Error interno del servidor");

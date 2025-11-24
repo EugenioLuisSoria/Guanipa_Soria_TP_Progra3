@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Descarga de ticket de compra pdf</title>
+  <style>
+    body { font-family: Arial; }
+    h1 { text-align: center; }
+    .producto { margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+  <h1>Ticket de compra</h1>
+
+  <p><strong>N° Ticket:</strong> <%= ticket.idticket %></p>
+  <p><strong>Fecha:</strong> <%= ticket.fechaCompra %></p>
+  <p><strong>Cliente:</strong> <%= ticket.nombreCliente %></p>
+
+  <h3>Productos</h3>
+
+  <% ticket.productos.forEach(p => { %>
+      <div class="producto">
+        <strong><%= p.nombre %></strong>
+        — Precio: <%= p.precio %>
+        — Cantidad: <%= p.cantidad %>
+      </div>
+  <% }) %>
+
+  <p><strong>Medio de pago:</strong> <%= ticket.medioPago %></p>
+
+</body>
+</html>
