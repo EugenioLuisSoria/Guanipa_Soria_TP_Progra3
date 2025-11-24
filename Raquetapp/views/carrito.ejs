@@ -39,45 +39,12 @@
       </form>
 
 
-      <!--  <main>
-      <h1>🛒 Tu carrito</h1>
-
-      <div id="carrito" class="carrito">
-
-        <% productos.forEach((producto)=> { %>
-          <div class="item">
-            <img src="<%= producto.imagen %>" alt="<%= producto.nombre %>">
-            <p>
-              <%= producto.nombre %>
-            </p>
-            <span>$<%= producto.precio %></span>
-
-            <div>
-              <p>Cantidad:</p>
-              <p class="cantItems"></p>
-              <button id="btn_agregar" data-id="<%= producto.id %>">+1</button>
-              <button id="btn_eliminar1" data-id="<%= producto.id %>">-1</button>
-              <button id="btn_eliminarTodos" data-id="<%= producto.id %>">Quitar Todos</button>
-            </div>
-          </div>
-          <% }) %>
-      </div>
-      <form class="formPagar" action="/carrito/pagar" method="post">
-        <input type="hidden" name="nombreUsuario" id="inputUsuario">
-        <input type="hidden" name="productosParaPagar" id="inputProductos">
-        <button class="btnPagar" type="submit">PAGAR</button>   
-      </form>
-
-    </main>
-
-
-      <script src="/js/item.js"></script>
-      <script src="/js/carrito.js"></script>
-      <script src="/js/footer.js"></script> -->
 
     </main>
     <%- include('./partials/2footer.ejs') %>
+      <script src="/js/item.js"></script>
       <script src="/js/carrito.js"></script>
+      <script src="/js/footer.js"></script>
 </body>
 
 </html>
