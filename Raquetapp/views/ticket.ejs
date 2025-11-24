@@ -9,8 +9,17 @@
     <h1>Ticket de la compra</h1>
     <p>Número de ticket: <%= ticket.idticket %></p>
     <p>Fecha: <%= ticket.fechaCompra %></p>
-    <p>Nombre del cliente: <%= ticket.cliente %></p>
-    <p>Producto: <%= ticket.producto %></p>
+    <p>Nombre del cliente: <%= ticket.nombreCliente %></p>
+    <P>Productos:</P>
+    <ul>
+      <% ticket.productos.forEach(prod => { %>
+          <li>
+            <strong><%= prod.nombre %></strong>  
+            - Precio: <%= prod.precio %>  
+            - Cantidad: <%= prod.cantidad %>
+          </li>
+      <% }) %>
+    </ul>
     <p>medioPago: <%= ticket.medioPago %></p>
 
 

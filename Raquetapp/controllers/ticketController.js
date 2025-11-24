@@ -8,14 +8,18 @@ const ticketController = {
                 include: [
                     {
                         model: db.Producto,
-                        attributes: { exclude: [] }, // TRAE TODOS LOS CAMPOS
+                        attributes: { exclude: ["cantidad"] }, // TRAE TODOS LOS CAMPOS
                         through: {
                             attributes: { exclude: [] }, // TRAE TODOS LOS CAMPOS DEL PIVOT
                         },
+                        
                     },
                 ],
                 attributes: { exclude: [] }, // TRAE TODOS LOS CAMPOS DE VENTAS
             });
+            console.log("VENTA:", venta.dataValues);
+            console.log("PRODUCTOS:", venta.Productos.map(p => p.dataValues));
+
 
             if (!venta) {
                 return res.status(404).send("Venta no encontrada");
@@ -29,7 +33,8 @@ const ticketController = {
                     precio: prod.precio,
                     cantidad: prod.VentaProducto.cantidad,
                 })),
-                medioPago: venta.medio /* ,
+                medioPago: venta.medio,
+                nombreCliente: venta.nombre /* ,
                 cliente: venta.Usuario.nombre,
                 emailCliente: venta.Usuario.mail,
                 precioUnitario: venta.Producto.precio,
@@ -61,7 +66,8 @@ const ticketController = {
             const ticket = {
                 idticket: venta.id,
                 fechaCompra: venta.fecha,
-                medioPago: venta.medio /* ,
+                medioPago: venta.medio,
+                nombreCliente: venta.nombre /* ,
             cliente: venta.Usuario.nombre,
             emailCliente: venta.Usuario.mail,
             producto: venta.Producto.nombre,

@@ -17,7 +17,11 @@ const Ventas = sequelize.define(
         medio: {
             type: DataTypes.STRING(50),
             allowNull: false,
-        }
+        },
+        nombre: {
+    type: DataTypes.STRING(50),
+    allowNull: false,
+    },
     },
     {
         tableName: "Ventas",
