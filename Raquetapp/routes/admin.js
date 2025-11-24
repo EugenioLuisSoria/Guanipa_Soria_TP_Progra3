@@ -20,7 +20,7 @@ router.delete("/cuerdas/:id", verificarToken, productosController.deleteOne_ADMI
 router.get("/nuevoProducto", verificarToken, productosController.nuevoProductoForm_ADMIN);
 router.post("/nuevoProducto", verificarToken, upload.single("imagen"), productosController.crear_ADMIN);
 
-router.get("/modificarProducto", verificarToken, productosController.modificarForm_ADMIN);
-router.put("/modificarProducto", verificarToken, upload.single("imagen"), productosController.modificar_ADMIN);
+router.get("/modificarProducto/:id", verificarToken, productosController.modificarForm_ADMIN);
+router.put("/modificarProducto/:id", verificarToken, upload.single("imagen"), productosController.modificar_ADMIN);
 
 module.exports = router;

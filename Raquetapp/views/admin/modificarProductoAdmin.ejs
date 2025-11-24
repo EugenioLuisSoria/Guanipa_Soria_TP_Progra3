@@ -19,37 +19,39 @@
 
     <main>
 
-      <form action="" method="POST" enctype="multipart/form-data" class="form_crear_producto">
+      <form action="/admin/modificarProducto/<%=producto.id%>?_method=PUT" method="POST" enctype="multipart/form-data"
+        class="form_crear_producto">
 
         <label>Nombre</label>
-        <input type="text" name="nombre" required />
+        <input type="text" name="nombre" value="<%=producto.nombre%>" />
 
         <label>Descripción</label>
-        <input type="text" name="descripcion" required />
+        <input type="text" name="descripcion" value="<%=producto.descripcion%>" required />
 
         <label>Imagen</label>
-        <input type="file" name="imagen" accept="image/*"/>
+        <input type="file" name="imagen" accept="image/*" />
+        <input type="hidden" name="imagenActual" value="<%= producto.imagen %>">
+
 
         <label>Precio</label>
-        <input type="number" name="precio" min="0" required />
+        <input type="number" name="precio" min="0" value="<%=producto.precio%>" required />
 
         <label>Stock</label>
-        <input type="number" name="stock" min="0" required />
+        <input type="number" name="stock" min="0" value="<%=producto.stock%>" required />
 
         <label>Activo</label>
         <select name="activo" required>
-          <option value="1">Activo</option>
+          <option value="1" selected>Activo</option>
           <option value="0">Inactivo</option>
         </select>
 
         <label>Categoría</label>
         <select name="categoria" required>
-          <option value="1">Raquetas</option>
-          <option value="2">Cuerdas</option>
-          <!-- si tenés más categorías, agregalas acá -->
+          <option value="1" <%=producto.categoria===1 ? "selected" : "" %>>Raquetas</option>
+          <option value="2" <%=producto.categoria===2 ? "selected" : "" %>>Cuerdas</option>
         </select>
 
-        <button type="submit" class="btn_crear">Crear Producto</button>
+        <button type="submit" class="btn_crear">Moidificar Producto</button>
       </form>
 
     </main>

@@ -146,10 +146,48 @@ const productosController = {
         }
     },
     modificarForm_ADMIN: async (req, res) => {
-        res.render("admin/modificarProductoAdmin");
+        try {
+            idProd = req.params.id;
+            const producto = await db.Producto.findOne({
+                where: { id: idProd },
+                include: db.Categoria,
+            });
+
+            res.render("admin/modificarProductoAdmin", { producto });
+        } catch (error) {
+            console.error("Error al obtener admin/productosAdmin:", error);
+            res.status(500).send("Error interno del servidor");
+        }
     },
     modificar_ADMIN: async (req, res) => {
+        try {
+            const id = req.params.id;
+            const { nombre, descripcion, precio, categoria, stock, activo, imagenActual } = req.body;
 
+            let imagenFinal = imagenActual; // usar la anterior por defecto
+
+            if (req.file) {
+                imagenFinal = "/images/productos/" + req.file.filename;
+            }
+
+            await db.Producto.update(
+                {
+                    nombre,
+                    descripcion,
+                    precio: Number(precio),
+                    categoria: Number(categoria),
+                    stock: Number(stock),
+                    activo: activo ? 1 : 0,
+                    imagen: imagenFinal,
+                },
+                { where: { id } }
+            );
+
+            return res.redirect("/admin");
+        } catch (err) {
+            console.error(err);
+            res.status(500).send("Error interno del servidor");
+        }
     },
 };
 

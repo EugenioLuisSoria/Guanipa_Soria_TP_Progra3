@@ -35,6 +35,9 @@
                 </a>
                 <p class="precio">$<%= p.precio %>
                 </p>
+                <a href="/admin/modificarProducto/<%= p.id %>">
+                  <button type="button" class="btn_modificar">MODIFICAR en Base de Datos</button>
+                </a>
                 <form action="/admin/raquetas/<%= p.id %>?_method=DELETE" method="POST">
                   <button type="submit" class="btn_eliminar">Eliminar de Base de Datos</button>
                 </form>
