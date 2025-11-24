@@ -93,11 +93,12 @@ CREATE TABLE `Ventas` (
   `fecha` date NOT NULL,
   `medio` varchar(50) NOT NULL,
   `nombre` varchar(50) NOT NULL,
+  `total` DECIMAL(10,2) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `Ventas` (`id`, `fecha`, `medio`,`nombre`) VALUES
-(1, '1999-01-02', 'Tarjeta','Belkis Guanipa');
+(1, '1999-01-02', 'Tarjeta','Belkis Guanipa',58911);
 
 -- ===========================================
 -- ============= TABLA VentaProducto =========

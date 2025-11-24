@@ -7,14 +7,15 @@ const carritoController = {
             let productos = await db.Producto.findAll({
                 where: { id: ids },
             });
-
-            res.render("carrito", { productos });
+            const usuario = req.session?.usuario || { nombre: "Invitado" };
+            res.render("carrito", { productos, usuario });
         } catch (error) {
             console.error("Error al obtener productos:", error);
             res.status(500).send("Error interno del servidor");
         }
     },
     pagarCarrito: async (req, res) => {
+        try {
         let ids = req.body.productosParaPagar.split(",").map(Number);
         let nombreUsuario = req.body.nombreUsuario;
 
@@ -33,13 +34,34 @@ const carritoController = {
             acum[id] = (acum[id] || 0) + 1;
             return acum;
         }, {});
+        
+        const totalPago = productosBase.reduce((acum, p) => acum + p.precio * conteo[p.id], 0);
 
         // Calculamos el total
-        totalPago = productosTotales.reduce((acum, producto) => {
-            return acum + Number(producto.precio);
-        }, 0);
-        res.render("pago", { productosBase, totalPago, conteo });
-    },
+        
+        // totalPago = productosTotales.reduce((acum, producto) => {
+        //     return acum + Number(producto.precio);
+        // }, 0);
+        
+        const venta = await db.Ventas.create({
+            fecha: new Date(),
+            medio: "Tarjeta", // o lo que venga del formulario
+            nombre: nombreUsuario,
+            total : totalPago
+        });
+        
+        for (const p of productosBase) {
+                await venta.addProducto(p, { through: { cantidad: conteo[p.id] } });
+            }
+
+            // Redirigir a la descarga de PDF
+            res.redirect(`/tickets/pdf?ids=${venta.id}`);
+
+        } catch (error) {
+            console.error("Error al pagar carrito:", error);
+            res.status(500).send("Error interno del servidor");
+        }
+    }
 };
 
 module.exports = carritoController;

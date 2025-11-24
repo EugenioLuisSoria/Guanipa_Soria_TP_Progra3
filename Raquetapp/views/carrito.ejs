@@ -33,10 +33,35 @@
         <% }) %>
     </div>
     <form class="formPagar" action="/carrito/pagar" method="post">
-      <input type="hidden" name="nombreUsuario" id="inputUsuario">
-      <input type="hidden" name="productosParaPagar" id="inputProductos">
-      <button class="btnPagar" type="submit">PAGAR</button> <!--  -->
-    </form>
+  <input type="hidden" name="nombreUsuario" id="inputUsuario">
+  <input type="hidden" name="productosParaPagar" id="inputProductos">
+  <button class="btnPagar" type="submit">PAGAR</button>
+</form>
+
+<script>
+  // Asumiendo que tu variable "productos" viene del backend
+ 
+  const productos = JSON.stringify(productos);
+
+  const inputUsuario = document.getElementById("inputUsuario");
+  const inputProductos = document.getElementById("inputProductos");
+
+  // Aquí puedes asignar el nombre del usuario, por ejemplo:
+  inputUsuario.value = "<%= usuario.nombre %>"; // O tomarlo de tu sesión si lo tienes
+
+  // Llenamos los IDs de los productos
+  const ids = productos.map(p => p.id);
+  inputProductos.value = ids.join(",");
+
+  // Opcional: si quieres que el botón PAGAR haga algo más antes de enviar, puedes manejar el submit aquí
+  const form = document.querySelector(".formPagar");
+  form.addEventListener("submit", function(e) {
+    if (!inputUsuario.value || ids.length === 0) {
+      e.preventDefault();
+      alert("No hay productos o usuario definido");
+    }
+  });
+</script>
 
   </main>
   <%- include('./partials/2footer.ejs') %>

@@ -35,12 +35,14 @@ const ticketController = {
                     cantidad: prod.VentaProducto.cantidad,
                 })),
                 medioPago: venta.medio,
-                nombreCliente: venta.nombre /* ,
+                total: venta.total,
+                nombreCliente: venta.nombre,
+                /*stotal: venta.Producto.precio * 1 ,
                 cliente: venta.Usuario.nombre,
                 emailCliente: venta.Usuario.mail,
                 precioUnitario: venta.Producto.precio,
                 cantidad: 1, // si no tienes columna cantidad
-                total: venta.Producto.precio * 1 */,
+                total: venta.Producto.precio * 1 */
             };
             ticket.esVista = true;
             res.render("ticket", { ticket });
@@ -68,6 +70,7 @@ const ticketController = {
                 idticket: venta.id,
                 fechaCompra: venta.fecha,
                 medioPago: venta.medio,
+                total: venta.total,
                 nombreCliente: venta.nombre,
                 productos: venta.Productos.map(p => ({
                     nombre: p.nombre,

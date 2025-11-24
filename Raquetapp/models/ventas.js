@@ -19,9 +19,13 @@ const Ventas = sequelize.define(
             allowNull: false,
         },
         nombre: {
-    type: DataTypes.STRING(50),
-    allowNull: false,
-    },
+        type: DataTypes.STRING(50),
+        allowNull: false,
+        },
+        total: { 
+        type :DataTypes.DECIMAL(10,2),
+        allowNull: false,
+        }
     },
     {
         tableName: "Ventas",
