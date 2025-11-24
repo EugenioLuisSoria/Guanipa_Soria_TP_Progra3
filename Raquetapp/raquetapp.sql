@@ -56,14 +56,14 @@ INSERT INTO `Producto` (`id`, `nombre`, `descripcion`, `imagen`, `precio`, `cate
 (7, 'RaquetPlusMega 7.0', 'No vas a poder creer lo que hace ', '/images/productos/raqueta7.webp', 58917, 1, 97, 1),
 (8, 'RaquetPlusMega 8.0', 'No vas a poder creer lo que hace ', '/images/productos/raqueta8.webp', 58918, 1, 98, 1),
 (9, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/raqueta9.webp', 58919, 1, 99, 1),
-(10, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda1.webp', 58919, 2, 910, 1),
-(11, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda2.webp', 58919, 2, 920, 1),
-(12, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda3.webp', 58919, 2, 930, 1),
-(13, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda4.webp', 58919, 2, 940, 1),
-(14, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda5.webp', 58919, 2, 950, 1),
-(15, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda6.webp', 58919, 2, 960, 1),
-(16, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda7.webp', 58919, 2, 970, 1),
-(17, 'RaquetPlusMega 9.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda8.webp', 58919, 2, 980, 1);
+(10, 'CuerdaPlusMega 1.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda1.webp', 58919, 2, 910, 1),
+(11, 'CuerdaPlusMega 2.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda2.webp', 58919, 2, 920, 1),
+(12, 'CuerdaPlusMega 3.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda3.webp', 58919, 2, 930, 1),
+(13, 'CuerdaPlusMega 4.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda4.webp', 58919, 2, 940, 1),
+(14, 'CuerdaPlusMega 5.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda5.webp', 58919, 2, 950, 1),
+(15, 'CuerdaPlusMega 6.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda6.webp', 58919, 2, 960, 1),
+(16, 'CuerdaPlusMega 7.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda7.webp', 58919, 2, 970, 1),
+(17, 'CuerdaPlusMega 8.0', 'No vas a poder creer lo que hace ', '/images/productos/cuerda8.webp', 58919, 2, 980, 1);
 
 -- ===========================================
 -- ================ TABLA Usuario ============

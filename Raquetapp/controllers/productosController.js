@@ -9,7 +9,6 @@ const productosController = {
                     model: db.Categoria,
                     where: { tipo: "raquetas" },
                 },
-                limit: 6,
             });
 
             res.render("productos", { producto: producto, tipo: "raquetas" });
