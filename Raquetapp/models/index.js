@@ -10,18 +10,10 @@ const sequelize = require("../database/database.js");
 Categoria.hasMany(Producto, { foreignKey: "categoria" });
 Producto.belongsTo(Categoria, { foreignKey: "categoria" });
 
-
-// RELACIÓN USUARIO → VENTAS (MUCHAS VENTAS POR USUARIO)
-// Usuario.hasMany(Ventas, { foreignKey: "usuario_id" });
-// Ventas.belongsTo(Usuario, { foreignKey: "usuario_id" });
-
 //Relacion venta producto (Muchos a muchos)
 
 Producto.belongsToMany(Ventas, { through: VentaProducto, foreignKey: "producto_id" });
 Ventas.belongsToMany(Producto, { through: VentaProducto, foreignKey: "venta_id" });
-
-/* Usuario.belongsToMany(Ventas, { through: "VentaProducto", foreignKey: "usuario_id" });
-Ventas.belongsToMany(Usuario, { through: "VentaProducto", foreignKey: "venta_id" }); */
 
 
 module.exports = { Producto, Categoria, Ventas, VentaProducto, Usuario, sequelize };
