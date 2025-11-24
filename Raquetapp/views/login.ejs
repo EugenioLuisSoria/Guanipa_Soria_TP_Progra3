@@ -22,6 +22,13 @@
   <%- include('./partials/1header.ejs') %>
 
     <main>
+      <h3>
+        <% if (typeof msj !=="undefined" ) { %>
+          <p class="msj">
+            <%= msj %>
+          </p>
+          <% } %>
+      </h3>
       <form action="/login" name="=loginForm" method="POST" id="form">
 
         <label for="mail">Email:</label>

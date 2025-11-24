@@ -38,7 +38,8 @@ const loginController = {
                     httpOnly: true,
                     maxAge: 5 * 60 * 1000,
                 });
-                return res.render("admin/indexAdmin");
+                //return res.render("admin/indexAdmin");
+                return res.redirect("/admin")
             } else {
                 return res.render("index");
             }
