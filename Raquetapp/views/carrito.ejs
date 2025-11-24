@@ -16,11 +16,11 @@
 
 <body>
   <%- include('./partials/1header.ejs') %>
+
     <main>
       <h1>🛒 Tu carrito</h1>
 
       <div id="carrito" class="carrito">
-
         <% productos.forEach((producto)=> { %>
           <div class="item">
             <img src="<%= producto.imagen %>" alt="<%= producto.nombre %>">
@@ -28,19 +28,20 @@
               <%= producto.nombre %>
             </p>
             <span>$<%= producto.precio %></span>
-            <button class="btn_agregar" data-id="<%= producto.id %>">Quitar del Carrito</button>
+            <button class="btn_agregar1" data-id="<%= producto.id %>">+1</button>
+            <button class="btn_quitar1" data-id="<%= producto.id %>">-1</button>
+            <button class="btn_eliminarTodos" data-id="<%= producto.id %>">Eliminar TODOS</button>
           </div>
           <% }) %>
       </div>
+
       <form class="formPagar" action="/carrito/pagar" method="post">
         <input type="hidden" name="nombreUsuario" id="inputUsuario">
         <input type="hidden" name="productosParaPagar" id="inputProductos">
         <button class="btnPagar" type="submit">PAGAR</button>
       </form>
-
-
-
     </main>
+
     <%- include('./partials/2footer.ejs') %>
       <script src="/js/item.js"></script>
       <script src="/js/carrito.js"></script>

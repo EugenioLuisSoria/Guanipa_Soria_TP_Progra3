@@ -35,18 +35,13 @@ const ticketController = {
                 medioPago: venta.medio,
                 total: venta.total,
                 nombreCliente: venta.nombre,
-                /*stotal: venta.Producto.precio * 1 ,
-                cliente: venta.Usuario.nombre,
-                emailCliente: venta.Usuario.mail,
-                precioUnitario: venta.Producto.precio,
-                cantidad: 1, // si no tienes columna cantidad
-                total: venta.Producto.precio * 1 */
             };
             ticket.esVista = true;
             res.render("ticket", { ticket });
+            
         } catch (error) {
             console.log(error);
-            //res.status(500).send("Error interno del servidor");
+            res.status(500).send("Error interno del servidor");
         }
     },
 

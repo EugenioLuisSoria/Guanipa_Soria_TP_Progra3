@@ -5,9 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputProductos = document.getElementById("inputProductos");
     const inputUsuario = document.getElementById("inputUsuario");;
 
-
-
-
+    
     form.addEventListener("submit", (e) => {
         let carritoItems = JSON.parse(localStorage.getItem("carritoItems")) || [];
         let nombreUsuario = localStorage.getItem("nombreUsuarioSTORAGE") 

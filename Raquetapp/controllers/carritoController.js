@@ -29,7 +29,7 @@ const carritoController = {
                 return productosBase.find((p) => p.id === id);
             });
 
-            // Crea obj Conteo, donde {id: cantidadDeVecesRepetido}
+            // Crea OBJETO Conteo, donde {id: cantidadDeVecesRepetido}
             const conteo = ids.reduce((acum, id) => {
                 acum[id] = (acum[id] || 0) + 1;
                 return acum;
