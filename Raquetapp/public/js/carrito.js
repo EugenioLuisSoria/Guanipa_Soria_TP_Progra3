@@ -26,6 +26,25 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //USANDO FETCH:
 
 /* document.addEventListener("DOMContentLoaded", () => {
