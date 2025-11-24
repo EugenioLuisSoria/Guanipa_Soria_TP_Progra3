@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(localStorage.getItem("carritoItems")); //CONSOLE.LOG BORRRRRARRRR
             inicializarFooter();
             ocultarItemsSinCantidad();
+            actualizarCantidadesEnDom();
         });
     });
     // +1
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(localStorage.getItem("carritoItems")); //CONSOLE.LOG BORRRRRARRRR
             inicializarFooter();
             ocultarItemsSinCantidad();
+            actualizarCantidadesEnDom();
         });
     });
 
@@ -44,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             inicializarFooter();
             ocultarItemsSinCantidad();
+            actualizarCantidadesEnDom();
         });
     });
 
@@ -61,9 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(localStorage.getItem("carritoItems")); //CONSOLE.LOG BORRRRRARRRR
             inicializarFooter();
             ocultarItemsSinCantidad();
+            actualizarCantidadesEnDom();
         });
     });
 
+
+    //FUNCIONES ESPECIFICAS
     function ocultarItemsSinCantidad() {
         const carrito = JSON.parse(localStorage.getItem("carritoItems")) || [];
         const itemsDOM = document.querySelectorAll(".item");
@@ -79,4 +85,20 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+    function actualizarCantidadesEnDom() {
+        const spans = document.querySelectorAll(".cantidad");
+        const carrito = JSON.parse(localStorage.getItem("carritoItems")) || [];
+
+        spans.forEach((span) => {
+            const id = span.dataset.id;
+            const cantidad = carrito.filter((item) => item === id).length;
+            span.textContent = `Cantidad: ${cantidad}`;
+            if (cantidad === 0) {
+                span.style.display = "none";
+            } else {
+                span.style.display = "inline";
+            }
+        });
+    }
+    actualizarCantidadesEnDom();
 });
