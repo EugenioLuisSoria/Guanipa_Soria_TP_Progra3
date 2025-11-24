@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    OPENsourceTENNIS
+  </title>
+  <link rel='stylesheet' href='/css/style.css' />
+  <link rel='stylesheet' href='/css/productos.css' />
+  <link rel='stylesheet' href='/css/partials/1header.css' />
+  <link rel='stylesheet' href='/css/partials/2footer.css' />
+</head>
+
+<body>
+  <!-- Header: es estático. Solo muestra logo y titulo -->
+  <%- include('../partials/1header.ejs') %>
+
+    <main>
+
+      <form action="" method="POST" enctype="multipart/form-data" class="form_crear_producto">
+
+        <label>Nombre</label>
+        <input type="text" name="nombre" required />
+
+        <label>Descripción</label>
+        <input type="text" name="descripcion" required />
+
+        <label>Imagen</label>
+        <input type="file" name="imagen" accept="image/*"/>
+
+        <label>Precio</label>
+        <input type="number" name="precio" min="0" required />
+
+        <label>Stock</label>
+        <input type="number" name="stock" min="0" required />
+
+        <label>Activo</label>
+        <select name="activo" required>
+          <option value="1">Activo</option>
+          <option value="0">Inactivo</option>
+        </select>
+
+        <label>Categoría</label>
+        <select name="categoria" required>
+          <option value="1">Raquetas</option>
+          <option value="2">Cuerdas</option>
+          <!-- si tenés más categorías, agregalas acá -->
+        </select>
+
+        <button type="submit" class="btn_crear">Crear Producto</button>
+      </form>
+
+    </main>
+    <!-- Footer: es estático. Solo muestra logo y titulo / y en Desk muestra links a redes etc -->
+    <%- include('../partials/2footer_admin.ejs') %>
+
+
+      <script src="/js/item.js"></script>
+</body>
+
+</html>

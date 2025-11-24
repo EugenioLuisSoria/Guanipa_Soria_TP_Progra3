@@ -145,6 +145,12 @@ const productosController = {
             res.status(500).send("Error interno del servidor");
         }
     },
+    modificarForm_ADMIN: async (req, res) => {
+        res.render("admin/modificarProductoAdmin");
+    },
+    modificar_ADMIN: async (req, res) => {
+
+    },
 };
 
 module.exports = productosController;

@@ -6,6 +6,7 @@ var logger = require("morgan");
 const cors = require("cors");
 var createError = require("http-errors");
 var multer =require("multer")
+const methodOverride = require("method-override");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -30,6 +31,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(methodOverride("_method"));
+
 
 //rutas
 app.use("/", indexRouter);

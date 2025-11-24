@@ -20,7 +20,7 @@
     <main>
 
       <div id="items_grid">
-        <% if (typeof producto !=="undefined" || producto !== null) { %>
+        <% if (typeof producto !=="undefined" || producto !==null) { %>
           <% producto.forEach((p)=> { %>
             <% if (p.activo){ %>
               <div class="navs nav_raquetas">
@@ -35,9 +35,10 @@
                 </a>
                 <p class="precio">$<%= p.precio %>
                 </p>
-                <form action="" method="post">
-                  <button class="btn_eliminar" type="submit">Eliminar de Base de Datos</button>
+                <form action="/admin/raquetas/<%= p.id %>?_method=DELETE" method="POST">
+                  <button type="submit" class="btn_eliminar">Eliminar de Base de Datos</button>
                 </form>
+                
               </div>
               <% } %>
                 <% }) %>
