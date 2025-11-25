@@ -14,8 +14,9 @@ router.delete("/productos/eliminar/:id", apiProductosController.eliminar);
 
 router.get("/usuarios", apiUsuariosController.home);
 router.get("/usuarios/listado", apiUsuariosController.listado);
+router.get("/usuarios/listado/:id", apiUsuariosController.getOne);
 router.post("/usuarios/crear", apiUsuariosController.crear);
 router.put("/usuarios/modificar/:id", apiUsuariosController.modificar);
-router.delete("/usuarios/eliminar", apiUsuariosController.eliminar);
+router.delete("/usuarios/eliminar/:id", apiUsuariosController.eliminar);
 
 module.exports = router;

@@ -24,7 +24,7 @@ const apiProductosController = {
             const producto = await db.Producto.findByPk(idOne);
             res.json({ producto });
         } catch {
-            console.error("Error al obtener admin/productosAdmin:", error);
+            console.error("Error al obtener api/productos", error);
             res.status(500).send("Error interno del servidor");
         }
     },
@@ -113,7 +113,7 @@ const apiProductosController = {
             });
             if (!eliminado) {
                 return res.json({
-                    mensaje: "Producto NO Eliminado",
+                    mensaje: "Producto NO Eliminado. Producto no encontrado",
                 });
             } else {
                 return res.json({
