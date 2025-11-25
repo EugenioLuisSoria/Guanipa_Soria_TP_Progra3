@@ -16,6 +16,7 @@ var registroRouter = require("./routes/registro");
 var loginRouter = require("./routes/login");
 var adminRouter = require("./routes/admin");
 var ticketRouter = require("./routes/ticket");
+var apiRouter = require("./routes/api/apiRouter")
 
 const sequelize = require("./database/database");
 
@@ -43,6 +44,9 @@ app.use("/registro", registroRouter);
 app.use("/login", loginRouter);
 app.use("/admin", adminRouter);
 app.use("/tickets", ticketRouter);
+//rutas API
+app.use("/api", apiRouter);
+
 
 
 /*  */
