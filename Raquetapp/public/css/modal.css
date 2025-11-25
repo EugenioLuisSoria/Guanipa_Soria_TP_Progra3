@@ -12,8 +12,11 @@
   align-items: center;
   z-index: 1000;
 }
+.contenidoModal2{
+  z-index: 1100;
+}
 
-.contenidoModal {
+.contenidoModal, .contenidoModal2 {
   background-color: var(--blanco-claro);
   border: 2vh solid var(--verde-claro);
   border-radius: 5.5vw 3vh;
@@ -22,13 +25,13 @@
   text-align: center;
 }
 
-.contenidoModal h2 {
+.contenidoModal h2, .contenidoModal2 h2 {
   margin-bottom: 1rem;
   font-size: 2.5rem;
   color: var(--naranja-oscuro);
 }
 
-.contenidoModal p {
+.contenidoModal p , .contenidoModal2 p {
   font-size: 1.5rem;
   font-weight: 500;
   color: var(--verde-oscuro);

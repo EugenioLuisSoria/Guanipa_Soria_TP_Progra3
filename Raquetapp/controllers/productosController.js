@@ -143,9 +143,9 @@ const productosController = {
             });
 
             console.log("Producto creado:", nuevoProducto.id);
-
+            msj = "Nuevo Producto creado"
             // DESPUÉS DE CREAR → REDIRIGIR A LA LISTA ADMIN
-            return res.render("admin/indexAdmin");
+            return res.render("admin/indexAdmin", {msj});
             // O /cuerdas según lo que corresponda
         } catch (error) {
             console.error("Error al crear producto:", error);

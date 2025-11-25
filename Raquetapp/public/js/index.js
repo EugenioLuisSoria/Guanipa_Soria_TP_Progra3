@@ -28,7 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 modal.classList.add("displayNone");
             }, 500);
         } else {
-            alert("Por favor, ingrese su nombre."); //MODIFICARLO PARA QUE SEA LINDO, Y APAREZCA NO COMO ALERT
+            const modalError = document.getElementById("modal_error");
+            modalError.classList.remove("displayNone");
+
+            const cerrarError = document.getElementById("cerrarError");
+            cerrarError.addEventListener("click", () => {
+                modalError.classList.add("displayNone");
+            });
         }
     });
 });
