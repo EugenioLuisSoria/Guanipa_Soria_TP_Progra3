@@ -3,19 +3,51 @@ const db = require("../../models/index.js");
 const apiProductosController = {
     home: (req, res) => {
         try {
-            res.json({ hola: "hola Productos" });
+            res.json({
+                api: "Productos",
+                get: "/api/productos/listado",
+                getPaginado: "/api/productos/listado?pag=1&limit=5",
+                getOne: "/api/productos/listado/:id",
+                crear: "/api/productos/crear",
+                modificar: "/api/productos/modificar/:id",
+                eliminar: "/api/productos/eliminar/:id",
+            });
         } catch (error) {
             console.error("Error al cargar api/productos", error);
         }
     },
     listado: async (req, res) => {
         try {
+            // Leer query params
+            let pag = Number(req.query.pag) || 1; // página actual
+            let limit = Number(req.query.limit) || 5; // productos por página
+            let offset = (pag - 1) * limit; // saltea los N primeros registros
+
+            // Obtener total de productos
+            let totalProductos = await db.Producto.count();
+
+            // Obtener productos de la página solicitada
             let productos = await db.Producto.findAll({
                 include: [{ model: db.Categoria }],
+                limit,
+                offset,
             });
-            res.json({ productos });
+
+            res.json({
+                meta: {
+                    status: 200,
+                    pag,
+                    limit,
+                    total: totalProductos,
+                    totalPages: Math.ceil(totalProductos / limit),
+                    next: pag * limit < totalProductos ? `/api/productos/listado?pag=${pag + 1}&limit=${limit}` : null,
+                    prev: pag > 1 ? `/api/productos/listado?pag=${pag - 1}&limit=${limit}` : null,
+                },
+                data: productos,
+            });
         } catch (error) {
             console.error("Error al cargar api/productos", error);
+            res.status(500).send("Error interno del servidor");
         }
     },
     getOne: async (req, res) => {

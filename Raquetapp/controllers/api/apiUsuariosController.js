@@ -5,15 +5,48 @@ const saltRounds = 10;
 const apiUsuariosController = {
     home: (req, res) => {
         try {
-            res.json({ hola: "hola Usuarios" });
+            res.json({
+                api: "Usuarios",
+                get: "/api/usuarios/listado",
+                getPaginado: "/api/usuarios/listado?pag=1&limit=5",
+                getOne: "/api/usuarios/listado/:id",
+                crear: "/api/usuarios/crear",
+                modificar: "/api/usuarios/modificar/:id",
+                eliminar: "/api/usuarios/eliminar/:id",
+            });
         } catch (error) {
             console.error("Error al cargar api/usuarios", error);
         }
     },
     listado: async (req, res) => {
         try {
-            let usuarios = await db.Usuario.findAll();
-            res.json({ usuarios });
+            // 1) Leer query params
+            let pag = Number(req.query.pag) || 1; // página actual
+            let limit = Number(req.query.limit) || 5; // usuarios por página
+            let offset = (pag - 1) * limit; // saltea los primeros N
+
+            // 2) Obtener total de usuarios
+            let totalUsuarios = await db.Usuario.count();
+
+            // 3) Obtener usuarios paginados
+            let usuarios = await db.Usuario.findAll({
+                limit,
+                offset,
+            });
+
+            // 4) Respuesta API REST estandarizada
+            res.json({
+                meta: {
+                    status: 200,
+                    pag,
+                    limit,
+                    total: totalUsuarios,
+                    totalPages: Math.ceil(totalUsuarios / limit),
+                    next: pag * limit < totalUsuarios ? `/api/usuarios/listado?pag=${pag + 1}&limit=${limit}` : null,
+                    prev: pag > 1 ? `/api/usuarios/listado?pag=${pag - 1}&limit=${limit}` : null,
+                },
+                data: usuarios,
+            });
         } catch (error) {
             console.error("Error al cargar api/usuarios", error);
         }
@@ -31,7 +64,7 @@ const apiUsuariosController = {
     crear: async (req, res) => {
         try {
             let { nombre, mail, password, tipo } = req.body;
-            
+
             // Usuario existente
             let existe = await db.Usuario.findOne({
                 where: { mail },
