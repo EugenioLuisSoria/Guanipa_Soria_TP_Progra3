@@ -1,9 +1,9 @@
 var express = require("express");
 var router = express.Router();
-const verificarToken = require("../middleware/verificarToken.js");
+const verificarToken = require("../middlewares/verificarToken.js");
 const adminController = require("../controllers/adminController.js");
 const productosController = require("../controllers/productosController.js");
-const upload = require("../middleware/multerMiddleware.js");
+const upload = require("../middlewares/multerMiddleware.js");
 
 router.get("/", verificarToken, adminController.home);
 

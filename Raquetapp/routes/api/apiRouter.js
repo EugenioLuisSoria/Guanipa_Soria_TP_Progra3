@@ -1,16 +1,19 @@
 var express = require("express");
 var router = express.Router();
-const upload = require("../../middleware/multerMiddleware.js");
+const upload = require("../../middlewares/multerMiddleware.js");
 
 const apiProductosController = require("../../controllers/api/apiProductosController.js");
 const apiUsuariosController = require("../../controllers/api/apiUsuariosController.js");
 const apiVentasController = require("../../controllers/api/apiVentasController.js");
 
+const { validarProductoCrear, validarProductoModificar } = require("../../middlewares/apiMiddleware/apiProductoValidaciones.js");
+const validarCampos = require("../../middlewares/apiMiddleware/apiValidarCampos.js");
+
 router.get("/productos", apiProductosController.home);
 router.get("/productos/listado", apiProductosController.listado);
 router.get("/productos/listado/:id", apiProductosController.getOne);
-router.post("/productos/crear", upload.single("imagen"), apiProductosController.crear);
-router.put("/productos/modificar/:id", upload.single("imagen"), apiProductosController.modificar);
+router.post("/productos/crear", validarProductoCrear, validarCampos, upload.single("imagen"), apiProductosController.crear);
+router.put("/productos/modificar/:id", validarProductoModificar, validarCampos, upload.single("imagen"), apiProductosController.modificar);
 router.delete("/productos/eliminar/:id", apiProductosController.eliminar);
 
 router.get("/usuarios", apiUsuariosController.home);
