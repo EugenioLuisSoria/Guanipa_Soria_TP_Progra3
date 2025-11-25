@@ -20,7 +20,7 @@ const apiProductosController = {
         try {
             // Leer query params
             let pag = Number(req.query.pag) || 1; // página actual
-            let limit = Number(req.query.limit) || 5; // productos por página
+            let limit = Number(req.query.limit) || 50; // productos por página
             let offset = (pag - 1) * limit; // saltea los N primeros registros
 
             // Obtener total de productos

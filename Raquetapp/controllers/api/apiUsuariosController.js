@@ -22,7 +22,7 @@ const apiUsuariosController = {
         try {
             // 1) Leer query params
             let pag = Number(req.query.pag) || 1; // página actual
-            let limit = Number(req.query.limit) || 5; // usuarios por página
+            let limit = Number(req.query.limit) || 50; // usuarios por página
             let offset = (pag - 1) * limit; // saltea los primeros N
 
             // 2) Obtener total de usuarios
