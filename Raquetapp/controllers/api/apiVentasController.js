@@ -9,8 +9,10 @@ const apiUsuariosController = {
                 getPaginado: "/api/ventas/listado?pag=1&limit=5",
                 getOne: "/api/ventas/listado/:id",
                 crear: "/api/ventas/crear",
+                crear_forma: " Se espera que 'items' sea un array así items: [ { producto_id: 3, cantidad: 2 }, { producto_id: 7, cantidad: 1 } ]",
                 modificar: "/api/ventas/modificar/:id",
                 eliminar: "/api/ventas/eliminar/:id",
+
             });
         } catch (error) {
             console.error("Error al cargar api/ventas", error);
