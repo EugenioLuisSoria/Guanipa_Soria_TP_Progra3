@@ -79,9 +79,9 @@ CREATE TABLE `Usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `Usuario` (`id`, `nombre`, `mail`, `password`, `tipo`) VALUES
-(1, 'Pepe', 'pepe@gmail.com', '1234', 0),
-(2, 'Fulano', 'fulano@gmail.com', '1234', 0),
-(3, 'admin', 'admin@gmail.com', 'admin', 1),
+(1, 'Pepe', 'pepe@gmail.com', '$2b$10$lyR2N8hINt3uystzSsWmSuRUuqYaiRVVKKlLIPd6g1Xyi1FhNkmZW', 0),
+(2, 'Fulano', 'fulano@gmail.com', '$2b$10$lyR2N8hINt3uystzSsWmSuRUuqYaiRVVKKlLIPd6g1Xyi1FhNkmZW', 0),
+(3, 'admin', 'admin@gmail.com', '$2b$10$lyR2N8hINt3uystzSsWmSuRUuqYaiRVVKKlLIPd6g1Xyi1FhNkmZW', 1),
 (4, 'Tester', 'tester@tester.com', '$2b$10$CGxn5oomNgo5ppbNG2TISO1c3ztH8xIZHoUUEIqVZvifaaTElo7r6', 1);
 
 -- ===========================================

@@ -1,4 +1,6 @@
 const db = require("../../models/index.js");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 const apiUsuariosController = {
     home: (req, res) => {
@@ -28,19 +30,30 @@ const apiUsuariosController = {
     },
     crear: async (req, res) => {
         try {
-            console.log("BODY QUE LLEGA A LA API ===>", req.body);
-            const { nombre, mail, password, tipo } = req.body;
+            let { nombre, mail, password, tipo } = req.body;
+            
+            // Usuario existente
+            let existe = await db.Usuario.findOne({
+                where: { mail },
+            });
+            if (existe) {
+                return res.render("registro", {
+                    msj: "El usuario ya está registrado",
+                });
+            }
 
             // VALIDACIÓN
             if (!nombre || !mail || !password || !tipo) {
-                return res.status(400).send("Faltan datos obligatorios");
+                return res.status(400).json({ mensaje: "Faltan datos obligatorios" });
             }
+            // Hash
+            let hashedPass = await bcrypt.hash(password, saltRounds);
 
             // CREACIÓN DEL USUARIO
-            const nuevoUsuario = await db.Usuario.create({
+            let nuevoUsuario = await db.Usuario.create({
                 nombre: nombre,
                 mail: mail,
-                password: password,
+                password: hashedPass,
                 tipo: Number(tipo),
             });
 
@@ -59,8 +72,8 @@ const apiUsuariosController = {
     },
     modificar: async (req, res) => {
         try {
-            const id = req.params.id;
-            const usuario = await db.Usuario.findByPk(id);
+            let id = req.params.id;
+            let usuario = await db.Usuario.findByPk(id);
 
             await db.Usuario.update(
                 {
@@ -72,7 +85,7 @@ const apiUsuariosController = {
                 { where: { id } }
             );
 
-            const usuarioFinal = await db.Usuario.findByPk(id);
+            let usuarioFinal = await db.Usuario.findByPk(id);
 
             return res.json({
                 meta: {
@@ -90,7 +103,7 @@ const apiUsuariosController = {
     eliminar: async (req, res) => {
         try {
             let idOne = req.params.id;
-            const eliminado = await db.Usuario.destroy({
+            let eliminado = await db.Usuario.destroy({
                 where: { id: idOne },
             });
             if (!eliminado) {
@@ -105,7 +118,6 @@ const apiUsuariosController = {
                     },
                 });
             }
-
         } catch (error) {
             console.error("Error al cargar api/productos", error);
         }
