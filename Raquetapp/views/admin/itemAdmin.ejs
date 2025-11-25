@@ -7,10 +7,14 @@
   <title>
     OPENsourceTENNIS
   </title>
+  <link rel="icon" type="image/x-icon" href="/favicon2.png">
+  <link rel='stylesheet' href='/css/modal.css' />
   <link rel='stylesheet' href='/css/style.css' />
   <link rel='stylesheet' href='/css/productos.css' />
+  <link rel='stylesheet' href='/css/style.css' />
   <link rel='stylesheet' href='/css/partials/1header.css' />
   <link rel='stylesheet' href='/css/partials/2footer.css' />
+
 </head>
 
 <body>
@@ -38,14 +42,24 @@
                 <a href="/admin/modificarProducto/<%= p.id %>">
                   <button type="button" class="btn_modificar">MODIFICAR en Base de Datos</button>
                 </a>
-                <form action="/admin/raquetas/<%= p.id %>?_method=DELETE" method="POST">
-                  <button type="submit" class="btn_eliminar">Eliminar de Base de Datos</button>
+                <form action="/admin/raquetas/<%= p.id %>?_method=DELETE" method="POST" id="formEliminar">
+                  <button type="submit" class="btn_eliminar" id="btn_submit_eliminar">Eliminar de Base de Datos</button>
                 </form>
-                
+                <!--  -->
+                <!--  -->
+                <!--  -->
+
               </div>
               <% } %>
-                <% }) %>
-                  <% } %>
+            <% }) %>
+          <% } %>
+      </div>
+      <div class="modal_error contenidoModal2 displayNone" id="modal_eliminar">
+        <h3>Aviso</h3>
+        <p>Seguro que quiere eliminar el Producto?</p>
+
+        <button id="confirmarEliminar">Eliminar</button>
+        <button id="cerrarValidacionEliminar">Cancelar</button>
       </div>
     </main>
     <!-- Footer: es estático. Solo muestra logo y titulo / y en Desk muestra links a redes etc -->

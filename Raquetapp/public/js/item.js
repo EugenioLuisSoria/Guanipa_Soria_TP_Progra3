@@ -68,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-
     //FUNCIONES ESPECIFICAS
     function ocultarItemsSinCantidad() {
         const carrito = JSON.parse(localStorage.getItem("carritoItems")) || [];
@@ -100,5 +99,31 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+    // ELIMINACION: MODAL PARA ADMIN PARA VALIDAR
+    function modalEliminar() {
+        const formEliminar = document.getElementById("formEliminar");
+        const modalEliminarDOM = document.getElementById("modal_eliminar");
+        const btnCerrar = document.getElementById("cerrarValidacionEliminar");
+        const btnConfirmar = document.getElementById("confirmarEliminar"); // <-- este botón lo agregás en el modal
+
+        let permitirEnvio = false;
+
+        formEliminar.addEventListener("submit", (e) => {
+            if (!permitirEnvio) {
+                e.preventDefault(); // frena el envío
+                modalEliminarDOM.classList.remove("displayNone");
+            }
+        });
+
+        btnCerrar.addEventListener("click", () => {
+            modalEliminarDOM.classList.add("displayNone");
+        });
+
+        btnConfirmar.addEventListener("click", () => {
+            permitirEnvio = true; // habilitás el envío
+            formEliminar.submit(); // ahora sí, se envía
+        });
+    }
     actualizarCantidadesEnDom();
+    modalEliminar()
 });
