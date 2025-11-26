@@ -41,8 +41,8 @@
 
         <label>Activo</label>
         <select name="activo" required>
-          <option value="1" selected>Activo</option>
-          <option value="0">Inactivo</option>
+          <option value="1" <%=producto.activo== 1 ? "selected" : "" %>>Activo</option>
+          <option value="0" <%=producto.activo== 0 ? "selected" : "" %>>Inactivo</option>
         </select>
 
         <label>Categoría</label>

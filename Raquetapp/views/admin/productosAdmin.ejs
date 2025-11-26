@@ -24,14 +24,15 @@
         </h3>
         <% } %>
           <div id="items_grid">
-            <% if (typeof producto !=="undefined" ) { %>
+            <% if (typeof producto !=="undefined" && producto !==null ) { %>
               <% producto.forEach((p)=> { %>
                 <div class="navs nav_raquetas">
                   <p class="nombre">
                     <%= p.nombre %>
                   </p>
-                  <% if (p.activo == false){ %>
-                    <P>INACTIVO</P>
+                  <% if (!p.activo) { %>
+                    <p>INACTIVO</p>
+                    <button type="button" class="btn_activar" data-id="<%= p.id %>">Activar</button>
                     <% } %>
                       <p class="descripcion">
                         <%= p.descripcion %>
@@ -58,6 +59,7 @@
 
       <script src="/js/item.js"></script>
       <script src="/js/productos.js"></script>
+      <script src="/js/admin/productoActivar.js"></script>
       <script src="/js/footer.js"></script>
 </body>
 
