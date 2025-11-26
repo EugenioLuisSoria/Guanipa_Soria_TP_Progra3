@@ -26,7 +26,8 @@ function inicializarFooter() {
     btnSalir.addEventListener("click", (e) => {
         e.preventDefault();
         localStorage.setItem("sesionActiva", "0");
-        window.location.href = "/";
+        localStorage.setItem("modo_oscuro", "0");
+        window.location.href = e.target.href;
     });
 }
 

@@ -23,4 +23,6 @@ router.post("/nuevoProducto", verificarToken, upload.single("imagen"), productos
 router.get("/modificarProducto/:id", verificarToken, productosController.modificarForm_ADMIN);
 router.put("/modificarProducto/:id", verificarToken, upload.single("imagen"), productosController.modificar_ADMIN);
 
+router.get("/logout", adminController.logout)
+
 module.exports = router;
