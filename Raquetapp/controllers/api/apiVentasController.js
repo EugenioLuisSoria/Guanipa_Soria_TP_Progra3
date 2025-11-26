@@ -9,10 +9,11 @@ const apiUsuariosController = {
                 getPaginado: "/api/ventas/listado?pag=1&limit=5",
                 getOne: "/api/ventas/listado/:id",
                 crear: "/api/ventas/crear",
-                crear_forma: " Se espera que 'items' sea un array así items: [ { producto_id: 3, cantidad: 2 }, { producto_id: 7, cantidad: 1 } ]",
+                crear_INDICACIONES1: "fecha, medio, nombre, items",
+                crear_INDICACIONES2: " Se espera que 'items' sea un array así items: [ { producto_id: 3, cantidad: 2 }, { producto_id: 7, cantidad: 1 } ]",
                 modificar: "/api/ventas/modificar/:id",
-                eliminar: "/api/ventas/eliminar/:id",
 
+                eliminar: "/api/ventas/eliminar/:id",
             });
         } catch (error) {
             console.error("Error al cargar api/ventas", error);
@@ -101,7 +102,7 @@ const apiUsuariosController = {
                 ]
             */
 
-           // 1) Calcular total
+            // 1) Calcular total
             let total = 0;
 
             for (let item of items) {
@@ -164,7 +165,6 @@ const apiUsuariosController = {
 
             // 1) Buscar la venta original
             const venta = await db.Ventas.findByPk(id);
-
             if (!venta) {
                 return res.status(404).json({
                     mensaje: "Venta no encontrada",
@@ -173,10 +173,8 @@ const apiUsuariosController = {
 
             // 2) Calcular nuevo total si te mandan items
             let total = venta.total;
-
             if (items) {
                 total = 0;
-
                 for (let item of items) {
                     const prod = await db.Producto.findByPk(item.producto_id);
                     if (!prod) {
@@ -202,7 +200,6 @@ const apiUsuariosController = {
             // 4) Si te mandaron nuevos items => borrar items viejos y crearlos devuelta
             if (items) {
                 await db.VentaProducto.destroy({ where: { venta_id: id } });
-
                 for (let item of items) {
                     await db.VentaProducto.create({
                         venta_id: id,
@@ -237,35 +234,34 @@ const apiUsuariosController = {
     eliminar: async (req, res) => {
         try {
             const id = req.params.id;
-    
+
             // 1) Verificar si la venta existe
             const venta = await db.Ventas.findByPk(id);
-    
+
             if (!venta) {
                 return res.status(404).json({
                     mensaje: "Venta no encontrada",
                 });
             }
-    
+
             // 2) Borrar primero los items asociados (tabla intermedia)
             await db.VentaProducto.destroy({
-                where: { venta_id: id }
+                where: { venta_id: id },
             });
-    
+
             // 3) Borrar la venta principal
             await db.Ventas.destroy({
-                where: { id }
+                where: { id },
             });
-    
+
             // 4) Respuesta final
             return res.json({
                 meta: {
                     status: 200,
                     mensaje: "Venta eliminada correctamente",
                     id,
-                }
+                },
             });
-    
         } catch (error) {
             console.error("Error al eliminar venta:", error);
             res.status(500).send("Error interno del servidor");

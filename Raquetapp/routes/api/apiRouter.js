@@ -16,8 +16,8 @@ const validarCampos = require("../../middlewares/apiMiddleware/apiValidarCampos.
 router.get("/productos", apiProductosController.home);
 router.get("/productos/listado", apiProductosController.listado);
 router.get("/productos/listado/:id", apiProductosController.getOne);
-router.post("/productos/crear", validarProductoCrear, validarCampos, upload.single("imagen"), apiProductosController.crear);
-router.put("/productos/modificar/:id", validarProductoModificar, validarCampos, upload.single("imagen"), apiProductosController.modificar);
+router.post("/productos/crear", upload.single("imagen"), validarProductoCrear, validarCampos, apiProductosController.crear);
+router.put("/productos/modificar/:id", upload.single("imagen"), validarProductoModificar, validarCampos, apiProductosController.modificar);
 router.delete("/productos/eliminar/:id", apiProductosController.eliminar);
 
 //RUTAS USUARIOS
@@ -32,8 +32,8 @@ router.delete("/usuarios/eliminar/:id", apiUsuariosController.eliminar);
 router.get("/ventas", apiVentasController.home);
 router.get("/ventas/listado", apiVentasController.listado);
 router.get("/ventas/listado/:id", apiVentasController.getOne);
-router.post("/ventas/crear",validarVentaCrear, validarCampos, apiVentasController.crear);
-router.put("/ventas/modificar/:id",validarVentaModificar, validarCampos, apiVentasController.modificar);
+router.post("/ventas/crear", validarVentaCrear, validarCampos, apiVentasController.crear);
+router.put("/ventas/modificar/:id", validarVentaModificar, validarCampos, apiVentasController.modificar);
 router.delete("/ventas/eliminar/:id", apiVentasController.eliminar);
 
 module.exports = router;

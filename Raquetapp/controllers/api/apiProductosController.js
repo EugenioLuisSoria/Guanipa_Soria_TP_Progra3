@@ -9,6 +9,7 @@ const apiProductosController = {
                 getPaginado: "/api/productos/listado?pag=1&limit=5",
                 getOne: "/api/productos/listado/:id",
                 crear: "/api/productos/crear",
+                crear_INDICACIONES: " nombre, descripcion, precio, categoria, stock, activo, imagen",
                 modificar: "/api/productos/modificar/:id",
                 eliminar: "/api/productos/eliminar/:id",
             });
@@ -78,7 +79,7 @@ const apiProductosController = {
                 precio: Number(precio),
                 stock: Number(stock),
                 categoria: Number(categoria),
-                activo: activo ? 1 : 0,
+                activo: activo ?? 1,
             });
 
             return res.json({

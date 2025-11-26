@@ -11,6 +11,7 @@ const apiUsuariosController = {
                 getPaginado: "/api/usuarios/listado?pag=1&limit=5",
                 getOne: "/api/usuarios/listado/:id",
                 crear: "/api/usuarios/crear",
+                crear_INDICACIONES: "nombre, mail, password, tipo",
                 modificar: "/api/usuarios/modificar/:id",
                 eliminar: "/api/usuarios/eliminar/:id",
             });
