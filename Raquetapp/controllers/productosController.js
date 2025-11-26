@@ -100,7 +100,7 @@ const productosController = {
             } */
 
             //TP PIDE "ELIMINAR" PONIENDO COMO INACTIVO EL PRODUCTO
-            let productoAinactivar = await db.Producto.update({ activo: 0 }, { where: { id: idOne } });
+            await db.Producto.update({ activo: 0 }, { where: { id: idOne } });
 
             res.render("admin/indexAdmin", { msj: "Producto Eliminado" }); // o la vista que quieras
         } catch (error) {
@@ -179,7 +179,7 @@ const productosController = {
                     precio: Number(precio),
                     categoria: Number(categoria),
                     stock: Number(stock),
-                    activo: activo ? 1 : 0,
+                    activo,
                     imagen: imagenFinal,
                 },
                 { where: { id } }

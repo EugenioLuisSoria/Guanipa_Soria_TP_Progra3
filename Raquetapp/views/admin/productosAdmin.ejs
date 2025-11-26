@@ -26,24 +26,25 @@
           <div id="items_grid">
             <% if (typeof producto !=="undefined" ) { %>
               <% producto.forEach((p)=> { %>
-                <% if (p.activo){ %>
-                  <div class="navs nav_raquetas">
-                    <p class="nombre">
-                      <%= p.nombre %>
-                    </p>
-                    <p class="descripcion">
-                      <%= p.descripcion %>
-                    </p>
-                    <a href="<%=tipo%>/<%= p.id%>">
-                      <img class="nav_img_raquetas" src="<%= p.imagen %>" alt="<%= p.nombre %>">
-                    </a>
-                    <p class="precio">$<%= p.precio %>
-                    </p>
+                <div class="navs nav_raquetas">
+                  <p class="nombre">
+                    <%= p.nombre %>
+                  </p>
+                  <% if (p.activo == false){ %>
+                    <P>INACTIVO</P>
+                    <% } %>
+                      <p class="descripcion">
+                        <%= p.descripcion %>
+                      </p>
+                      <a href="<%=tipo%>/<%= p.id%>">
+                        <img class="nav_img_raquetas" src="<%= p.imagen %>" alt="<%= p.nombre %>">
+                      </a>
+                      <p class="precio">$<%= p.precio %>
+                      </p>
 
-                  </div>
+                </div>
+                <% }) %>
                   <% } %>
-                    <% }) %>
-                      <% } %>
           </div>
           <div id="paginacion" class="paginacion">
             <button id="btn_anterior">Anterior</button>

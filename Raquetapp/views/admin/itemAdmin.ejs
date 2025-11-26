@@ -26,33 +26,37 @@
       <div id="items_grid">
         <% if (typeof producto !=="undefined" || producto !==null) { %>
           <% producto.forEach((p)=> { %>
-            <% if (p.activo){ %>
-              <div class="navs nav_raquetas">
-                <p class="nombre">
-                  <%= p.nombre %>
-                </p>
-                <p class="descripcion">
-                  <%= p.descripcion %>
-                </p>
-                <a href="#">
-                  <img class="nav_img_raquetas" src="<%= p.imagen %>" alt="<%= p.nombre %>">
-                </a>
-                <p class="precio">$<%= p.precio %>
-                </p>
-                <a href="/admin/modificarProducto/<%= p.id %>">
-                  <button type="button" class="btn_modificar">MODIFICAR en Base de Datos</button>
-                </a>
-                <form action="/admin/raquetas/<%= p.id %>?_method=DELETE" method="POST" id="formEliminar">
-                  <button type="submit" class="btn_eliminar" id="btn_submit_eliminar">Eliminar de Base de Datos</button>
-                </form>
-                <!--  -->
-                <!--  -->
-                <!--  -->
 
-              </div>
-              <% } %>
+            <div class="navs nav_raquetas">
+              <p class="nombre">
+                <%= p.nombre %>
+              </p>
+              <% if (p.activo==false){ %>
+                <P>INACTIVO</P>
+                <% } %>
+                  <p class="descripcion">
+                    <%= p.descripcion %>
+                  </p>
+                  <a href="#">
+                    <img class="nav_img_raquetas" src="<%= p.imagen %>" alt="<%= p.nombre %>">
+                  </a>
+                  <p class="precio">$<%= p.precio %>
+                  </p>
+                  <a href="/admin/modificarProducto/<%= p.id %>">
+                    <button type="button" class="btn_modificar">MODIFICAR en Base de Datos</button>
+                  </a>
+                  <form action="/admin/raquetas/<%= p.id %>?_method=DELETE" method="POST" id="formEliminar">
+                    <button type="submit" class="btn_eliminar" id="btn_submit_eliminar">Eliminar de Base de
+                      Datos</button>
+                  </form>
+                  <!--  -->
+                  <!--  -->
+                  <!--  -->
+
+            </div>
+
             <% }) %>
-          <% } %>
+              <% } %>
       </div>
       <div class="modal_error contenidoModal2 displayNone" id="modal_eliminar">
         <h3>Aviso</h3>
