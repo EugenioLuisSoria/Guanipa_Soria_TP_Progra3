@@ -64,11 +64,6 @@ const apiProductosController = {
         try {
             const { nombre, descripcion, precio, categoria, stock, activo } = req.body;
 
-            // VALIDACIÓN
-            if (!nombre || !descripcion || !precio || !categoria || !stock) {
-                return res.status(400).send("Faltan datos obligatorios");
-            }
-
             // SI VIENE IMAGEN DEL MULTER
             let imagenFinal = "";
             if (req.file) {

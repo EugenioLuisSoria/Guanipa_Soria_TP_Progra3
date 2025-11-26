@@ -75,10 +75,6 @@ const apiUsuariosController = {
                 });
             }
 
-            // VALIDACIÓN
-            if (!nombre || !mail || !password || !tipo) {
-                return res.status(400).json({ mensaje: "Faltan datos obligatorios" });
-            }
             // Hash
             let hashedPass = await bcrypt.hash(password, saltRounds);
 

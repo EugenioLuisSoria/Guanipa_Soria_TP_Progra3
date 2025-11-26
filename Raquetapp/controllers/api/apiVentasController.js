@@ -101,18 +101,7 @@ const apiUsuariosController = {
                 ]
             */
 
-            // VALIDACIONES BÁSICAS
-            if (!fecha || !medio || !nombre || !items || !Array.isArray(items)) {
-                return res.status(400).json({
-                    mensaje: "Faltan datos obligatorios",
-                    ejemplo_items: [
-                        { producto_id: 1, cantidad: 2 },
-                        { producto_id: 3, cantidad: 1 },
-                    ],
-                });
-            }
-
-            // 1) Calcular total
+           // 1) Calcular total
             let total = 0;
 
             for (let item of items) {
@@ -182,14 +171,7 @@ const apiUsuariosController = {
                 });
             }
 
-            // 2) Validar items si vienen
-            if (items && !Array.isArray(items)) {
-                return res.status(400).json({
-                    mensaje: "El campo 'items' debe ser un array",
-                });
-            }
-
-            // 3) Calcular nuevo total si te mandan items
+            // 2) Calcular nuevo total si te mandan items
             let total = venta.total;
 
             if (items) {
@@ -206,7 +188,7 @@ const apiUsuariosController = {
                 }
             }
 
-            // 4) Actualizar venta
+            // 3) Actualizar venta
             await db.Ventas.update(
                 {
                     fecha: fecha ?? venta.fecha,
@@ -217,7 +199,7 @@ const apiUsuariosController = {
                 { where: { id } }
             );
 
-            // 5) Si te mandaron nuevos items → borrar items viejos y crearlos devuelta
+            // 4) Si te mandaron nuevos items => borrar items viejos y crearlos devuelta
             if (items) {
                 await db.VentaProducto.destroy({ where: { venta_id: id } });
 
