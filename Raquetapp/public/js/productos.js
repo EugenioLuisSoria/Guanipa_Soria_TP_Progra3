@@ -1,3 +1,4 @@
+//PAGINADO DE PRODUCTOS
 document.addEventListener("DOMContentLoaded", () => {
     let paginaActual = 0;
     const itemsPorPagina = 3;

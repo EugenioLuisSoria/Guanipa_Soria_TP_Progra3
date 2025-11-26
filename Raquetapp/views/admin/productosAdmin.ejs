@@ -24,7 +24,7 @@
         </h3>
         <% } %>
           <div id="items_grid">
-            <% if (typeof producto !=="undefined") { %>
+            <% if (typeof producto !=="undefined" ) { %>
               <% producto.forEach((p)=> { %>
                 <% if (p.activo){ %>
                   <div class="navs nav_raquetas">
@@ -45,6 +45,10 @@
                     <% }) %>
                       <% } %>
           </div>
+          <div id="paginacion" class="paginacion">
+            <button id="btn_anterior">Anterior</button>
+            <button id="btn_siguiente">Siguiente</button>
+          </div>
     </main>
 
     <!-- Footer: es estático. Solo muestra logo y titulo / y en Desk muestra links a redes etc -->
@@ -52,6 +56,7 @@
 
 
       <script src="/js/item.js"></script>
+      <script src="/js/productos.js"></script>
       <script src="/js/footer.js"></script>
 </body>
 

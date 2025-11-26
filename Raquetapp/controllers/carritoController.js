@@ -51,7 +51,8 @@ const carritoController = {
             }
 
             // Redirigir a la descarga de PDF
-            res.redirect(`/tickets/pdf?ids=${venta.id}`);
+            res.redirect(`/tickets/pdf/${venta.id}`);
+            
         } catch (error) {
             console.error("Error al pagar carrito:", error);
             res.status(500).send("Error interno del servidor");

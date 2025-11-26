@@ -53,7 +53,6 @@ const productosController = {
                     model: db.Categoria,
                     where: { tipo: "raquetas" },
                 },
-                limit: 6,
             });
 
             res.render("admin/productosAdmin", { producto: producto, tipo: "raquetas" });
@@ -101,13 +100,9 @@ const productosController = {
             } */
 
             //TP PIDE "ELIMINAR" PONIENDO COMO INACTIVO EL PRODUCTO
-            let productoAinactivar = await db.Producto.update(
-                { activo: 0, },
-                { where: {id: idOne} }
-            );
+            let productoAinactivar = await db.Producto.update({ activo: 0 }, { where: { id: idOne } });
 
             res.render("admin/indexAdmin", { msj: "Producto Eliminado" }); // o la vista que quieras
-
         } catch (error) {
             console.error("Error al eliminar:", error);
             res.status(500).send("Error interno del servidor");
@@ -143,9 +138,9 @@ const productosController = {
             });
 
             console.log("Producto creado:", nuevoProducto.id);
-            msj = "Nuevo Producto creado"
+            msj = "Nuevo Producto creado";
             // DESPUÉS DE CREAR → REDIRIGIR A LA LISTA ADMIN
-            return res.render("admin/indexAdmin", {msj});
+            return res.render("admin/indexAdmin", { msj });
             // O /cuerdas según lo que corresponda
         } catch (error) {
             console.error("Error al crear producto:", error);

@@ -1,34 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ticket</title>
-  </head>
-  <body>
-    <h1>Ticket de la compra</h1>
-    <p>Número de ticket: <%= ticket.idticket %></p>
-    <p>Fecha: <%= ticket.fechaCompra %></p>
-    <p>Nombre del cliente: <%= ticket.nombreCliente %></p>
-    <P>Productos:</P>
-    <ul>
-      <% ticket.productos.forEach(prod => { %>
-          <li>
-            <strong><%= prod.nombre %></strong>  
-            - Precio: <%= prod.precio %>  
-            - Cantidad: <%= prod.cantidad %>
-          </li>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ticket</title>
+</head>
+
+<body>
+  <h1>Ticket de la compra</h1>
+  <p>Número de ticket: <%= ticket.idticket %>
+  </p>
+  <p>Fecha: <%= ticket.fechaCompra %>
+  </p>
+  <p>Nombre del cliente: <%= ticket.nombreCliente %>
+  </p>
+  <P>Productos:</P>
+  <ul>
+    <% ticket.productos.forEach(prod=> { %>
+      <li>
+        <strong>
+          <%= prod.nombre %>
+        </strong>
+        - Precio: <%= prod.precio %>
+          - Cantidad: <%= prod.cantidad %>
+      </li>
       <% }) %>
-    </ul>
-    <p>medioPago: <%= ticket.medioPago %></p>
-    <p><strong>total</strong> <%= ticket.total %></p>
+  </ul>
+  <p>medioPago: <%= ticket.medioPago %>
+  </p>
+  <p><strong>total</strong>
+    <%= ticket.total %>
+  </p>
 
-
-
-    <% if(ticket.esVista === true) { %>
-    <a href="http://localhost:3000/tickets/pdf?ids=<%= ticket.idticket %>" target="_blank">
-      Descargar Ticket</a
-    >
+  <% if(ticket.esVista===true) { %>
+    <a href="/tickets/pdf?ids=<%= ticket.idticket %>" target="_blank">Descargar Ticket</a>
+    <a id="btnSalir" href="/">Salir</a>
     <% } %>
-  </body>
+
+
+
+      <footer>
+        <div>
+          <p>by Guanipa-Soria</p>
+        </div>
+        <nav id="nav_footer">
+          <a class="displayNone" id="aCarrito" href="/carrito"> Carrito</a>
+          <a id="btnSalir" href="/">Salir</a>
+        </nav>
+        <div>
+          <ul id="links_mobile"> <!-- ver @mediaqueries para ocultar en modo grande -->
+            <li>MYSPACE</li>
+            <li>FOTOLOG</li>
+            <li>FACEBOOK</li>
+          </ul>
+        </div>
+        <script src="/js/footer.js"></script>
+      </footer>
+</body>
+
 </html>
