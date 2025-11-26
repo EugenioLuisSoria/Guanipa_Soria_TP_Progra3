@@ -11,6 +11,7 @@
   <link rel='stylesheet' href='/css/partials/1header.css' />
   <link rel='stylesheet' href='/css/partials/2footer.css' />
   <link rel="stylesheet" href="/css/carrito.css">
+  <link rel='stylesheet' href='/css/modal.css' />
 
 </head>
 
@@ -42,12 +43,18 @@
         <input type="hidden" name="productosParaPagar" id="inputProductos">
         <button class="btnPagar" type="submit">PAGAR</button>
       </form>
+      <div class="modal_confirmacion displayNone" id="modal_pagar">
+        <p>Confirmar Pago?</p>
+        <button type="button" class="btn_confirmar_modal">Confirmar</button>
+        <button type="button" class="btn_cerrar_modal">Cancelar</button>
+      </div>
     </main>
 
     <%- include('./partials/2footer.ejs') %>
       <script src="/js/item.js"></script>
       <script src="/js/carrito.js"></script>
       <script src="/js/footer.js"></script>
+      <script src="/js/btn_pagar.js"></script>
 </body>
 
 </html>
