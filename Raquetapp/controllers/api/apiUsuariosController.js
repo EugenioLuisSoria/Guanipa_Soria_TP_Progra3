@@ -104,10 +104,18 @@ const apiUsuariosController = {
         try {
             let id = req.params.id;
             let usuario = await db.Usuario.findByPk(id);
+            if (!usuario) {
+                return res.status(404).json({
+                    meta: {
+                        status: 404,
+                        mensaje: "Usuario no encontrado",
+                    },
+                });
+            }
 
             await db.Usuario.update(
                 {
-                    nombre: req.body.nombre ?? producto.nombre,
+                    nombre: req.body.nombre ?? usuario.nombre,
                     mail: req.body.mail ?? usuario.mail,
                     password: req.body.password ?? usuario.password,
                     tipo: req.body.tipo ? Number(req.body.tipo) : usuario.tipo,

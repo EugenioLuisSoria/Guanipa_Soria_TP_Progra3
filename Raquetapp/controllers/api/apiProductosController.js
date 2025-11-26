@@ -100,6 +100,15 @@ const apiProductosController = {
             const id = req.params.id;
             const producto = await db.Producto.findByPk(id);
 
+            if (!producto) {
+                return res.status(404).json({
+                    meta: {
+                        status: 404,
+                        mensaje: "Producto no encontrado",
+                    },
+                });
+            }
+
             let imagenFinal = producto.imagen;
             if (req.file) {
                 imagenFinal = "/images/productos/" + req.file.filename;
