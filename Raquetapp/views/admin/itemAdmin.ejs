@@ -34,6 +34,11 @@
               <% if (!p.activo) { %>
                 <p>INACTIVO</p>
                 <button type="button" class="btn_activar" data-id="<%= p.id %>">Activar</button>
+                <div class="modal_confirmacion displayNone" id="modal_<%= p.id %>">
+                  <p>Confirmar activación del producto <%= p.nombre %>?</p>
+                  <button type="button" class="btn_confirmar_modal" data-id="<%= p.id %>">Confirmar</button>
+                  <button type="button" class="btn_cerrar_modal" data-id="<%= p.id %>">Cancelar</button>
+                </div>
                 <% } %>
                   <p class="descripcion">
                     <%= p.descripcion %>

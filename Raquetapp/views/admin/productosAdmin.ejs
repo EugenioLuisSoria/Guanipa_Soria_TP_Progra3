@@ -7,8 +7,11 @@
   <title>
     OPENsourceTENNIS
   </title>
+  <link rel="icon" type="image/x-icon" href="/favicon2.png">
+  <link rel='stylesheet' href='/css/modal.css' />
   <link rel='stylesheet' href='/css/style.css' />
   <link rel='stylesheet' href='/css/productos.css' />
+  <link rel='stylesheet' href='/css/style.css' />
   <link rel='stylesheet' href='/css/partials/1header.css' />
   <link rel='stylesheet' href='/css/partials/2footer.css' />
 </head>
@@ -33,6 +36,11 @@
                   <% if (!p.activo) { %>
                     <p>INACTIVO</p>
                     <button type="button" class="btn_activar" data-id="<%= p.id %>">Activar</button>
+                    <div class="modal_confirmacion displayNone" id="modal_<%= p.id %>">
+                      <p>Confirmar activación del producto <%= p.nombre %>?</p>
+                      <button type="button" class="btn_confirmar_modal" data-id="<%= p.id %>">Confirmar</button>
+                      <button type="button" class="btn_cerrar_modal" data-id="<%= p.id %>">Cancelar</button>
+                    </div>
                     <% } %>
                       <p class="descripcion">
                         <%= p.descripcion %>
@@ -57,9 +65,9 @@
     <%- include('../partials/2footer_admin.ejs') %>
 
 
+      <script src="/js/admin/productoActivar.js"></script>
       <script src="/js/item.js"></script>
       <script src="/js/productos.js"></script>
-      <script src="/js/admin/productoActivar.js"></script>
       <script src="/js/footer.js"></script>
 </body>
 
