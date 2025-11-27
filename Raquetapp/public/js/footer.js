@@ -17,9 +17,12 @@ function inicializarFooter() {
 
     // Para que aparezca el boton carrito cuando hay items sumados al carro
     const aCarritoLink = document.getElementById("aCarrito");
-    if (localStorage.getItem("carritoItems") > 0) {
+    const items = JSON.parse(localStorage.getItem("carritoItems")) || [];
+    if (items.length > 0) {
         aCarritoLink.classList.remove("displayNone");
-    } 
+    } else if (items.length == 0) {
+        aCarritoLink.classList.add("displayNone");
+    }
 
     //boton SALIR:
     const btnSalir = document.getElementById("btnSalir");

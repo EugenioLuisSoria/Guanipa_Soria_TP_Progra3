@@ -3,11 +3,11 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    grid-column: 1 / 8;
+    /*  */
     grid-row: 1 / 2;
+    grid-column: 1 / 7;
     border-bottom: 5px var(--amarillo-oscuro) solid;
     width: 100%;
-    height: 20vh;
     background-color: var(--violeta-claro);
   }
 

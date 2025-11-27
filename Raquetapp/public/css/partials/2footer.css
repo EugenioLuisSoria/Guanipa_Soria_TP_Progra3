@@ -1,16 +1,21 @@
 footer {
-  border-top: 10px var(--amarillo-claro) solid;
-  background-color: var(--verde-oscuro);
-  width: 100%;
-  height: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  /*  */
+  color: var(--blanco-claro);
+  background-color: var(--verde-oscuro);
+  border-top: 10px var(--amarillo-claro) solid;
+  /*  */
   bottom: 0;
   left: 0;
   z-index: 1000;
+  /*  */
+  grid-row: 3 / 4;
+  grid-column: 1 / 7;
+  /*  */
+  padding: 10px 2px;
 }
 
 /* Texto central */
@@ -46,22 +51,29 @@ footer div p {
   transition: all 0.2s ease-in-out;
 }
 
+#links_mobile,
+#links_mobile li {
+  display: none;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8em;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 /* para pantallas pequeñas */
 /* para pantallas pequeñas */
 /* LOGRAR QUE EL FOOTER ES VEA BORROSO CUANDO ESTÁ EL MODAL */
 
 @media (max-width: 768px) {
   footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    padding: 1rem;
     background-color: var(--verde-oscuro);
+    height: auto;
+    width: 100%;
+    padding: 1rem;
   }
 
   footer a {
