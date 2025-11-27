@@ -38,17 +38,17 @@ footer div p {
 
 /* Enlaces estilo botón */
 #nav_footer a {
-  flex: 1; /* cada link ocupa el mismo espacio */
+  flex: 0.2; /* cada link ocupa el mismo espacio */
   text-align: center;
-  margin: 0 0.5rem;
-  background-color: var(--amarillo-claro);
-  color: var(--verde-oscuro);
   font-weight: bold;
-  padding: 0.6rem 0.5rem;
   border-radius: 10px;
   text-decoration: none;
+  color: var(--verde-oscuro);
+  background-color: var(--amarillo-claro);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   transition: all 0.2s ease-in-out;
+  margin: 0 0.5rem;
+  padding: 0.6rem 0.5rem;
 }
 
 #links_mobile,

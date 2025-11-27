@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
             modal.classList.add("fadeOut");
             /* para nombreUsuarioSTORAGE */
             const welcome = document.getElementById("welcomeNombre");
-            welcome.textContent = `Welcome to RaquetApp, ${nombreUsuarioSTORAGE}`;
+            welcome.textContent = `Bienvenido a RaquetApp, ${nombreUsuarioSTORAGE}`;
 
             //para desaparcer link a Carrito sin session:
             /* const aCarritoLink = document.getElementById("aCarrito")

@@ -1,22 +1,28 @@
 header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /*  */
-    grid-row: 1 / 2;
-    grid-column: 1 / 7;
-    border-bottom: 5px var(--amarillo-oscuro) solid;
-    width: 100%;
-    background-color: var(--violeta-claro);
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  /*  */
+  grid-row: 1 / 2;
+  grid-column: 1 / 7;
+  border-bottom: 5px var(--amarillo-oscuro) solid;
+  width: 100%;
+  background-color: var(--violeta-claro);
+}
 
-  .header_logo {
-    position: relative;
-    top: 10%;
-    left: 10px;
-    width: 80px;         /* ajustá el tamaño a gusto */
-    height: auto;
-    object-fit: contain;
-    content: url("../../images/Raquetapp_img2.png"); /* ruta desde carpeta public */
-  }
+.header_logo {
+  position: absolute;
+  top: 0;
+  left: 2vw;
+  width: 15vh;
+  height: auto;
+  object-fit: contain;
+  content: url("../../images/Raquetapp_img2.png");
+
+  filter: drop-shadow(1px 35px 50px var(--amarillo-oscuro));
+}
+
+#welcomeNombre{
+ font-size: 2.5em;
+}
