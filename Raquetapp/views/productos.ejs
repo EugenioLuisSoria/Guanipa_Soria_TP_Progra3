@@ -22,7 +22,7 @@
       <div id="items_grid">
         <% producto.forEach((p)=> { %>
           <% if (p.activo){ %>
-            <div class="navs nav_raquetas">
+            <div class="navs nav_raquetas" id="item">
               <p class="nombre">
                 <%= p.nombre %>
               </p>
@@ -34,8 +34,8 @@
               </a>
               <p class="precio">$<%= p.precio %>
               </p>
-              <button class="btn_agregar1" data-id="<%= p.id %>">Agregar al Carrito</button>
-              <button class="btn_quitar1" data-id="<%= p.id %>">-1</button>
+              <button class="btn_agregar1" data-id="<%= p.id %>">Agregar 1</button>
+              <button class="btn_quitar1" data-id="<%= p.id %>">Sacar 1</button>
               <button class="btn_eliminarTodos" data-id="<%= p.id %>">Eliminar Todos</button>
               <span class="cantidad" data-id="<%= p.id %>">Cantidad: 0</span>
             </div>

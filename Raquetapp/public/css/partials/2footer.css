@@ -50,6 +50,10 @@ footer div p {
   margin: 0 0.5rem;
   padding: 0.6rem 0.5rem;
 }
+#nav_footer a:hover {
+  background-color: var(--verde-claro);
+
+}
 
 #links_mobile,
 #links_mobile li {
