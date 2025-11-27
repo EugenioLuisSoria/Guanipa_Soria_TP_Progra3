@@ -1,0 +1,29 @@
+<!-- Modal de Bienvenida: se oculta al tocarse la pantalla (JS)  --- displayNone -->
+      <!-- REMOVER EL displayNone PARA QUE SE MUESTRE EN PRODUCCION -->
+      <!-- <div class="modal_bienvenida displayNone" id="modal_bienvenida"> -->
+        <div class="modal_bienvenida " id="modal_bienvenida">
+          <div class="contenidoModal">
+            <h2>@RaquetApp: Tu Centro de Raquetas y Cuerdas</h2>
+            <br><br>
+            <p>Ingrese su nombre:</p>
+            <div>
+              <form>
+                <textarea id="nombreUsuario" name="nombreUsuario" placeholder="Raqueto Raquétez"></textarea>
+                <button type="submit">Aceptar</button>
+              </form>
+              <a href="/login">Login para Admin</a>
+            </div>
+            <div class="darkMode">
+              <select>
+                <option value="claro" selected>Claro</option>
+                <option value="oscuro">Oscuro</option>
+              </select>
+            </div>
+          </div>
+        </div>
+  
+        <div class="modal_error contenidoModal2 displayNone" id="modal_error">
+          <h3>Aviso</h3>
+          <p>Por favor, ingrese su nombre.</p>
+          <button id="cerrarError">Cerrar</button>
+        </div>
