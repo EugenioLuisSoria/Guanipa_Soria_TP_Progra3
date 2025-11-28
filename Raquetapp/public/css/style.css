@@ -22,8 +22,8 @@
 body {
   position: relative;
   display: grid;
-  grid-template-rows: 20% 70% 10%;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: repeat(4, 1fr);
   box-sizing: border-box;
   /*  */
   height: 100%;
@@ -38,7 +38,7 @@ body {
 
 main {
   grid-row: 2 / 3;
-  grid-column: 2 / 6;
+  grid-column: 1 / -1;
   position: relative;
   display: flex;
   justify-content: center;
@@ -51,9 +51,9 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 4rem;
   width: 75%;
-  height: 70%;
+  height: 90%;
 }
 .navs {
   display: flex;
