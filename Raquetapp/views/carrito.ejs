@@ -8,10 +8,11 @@
     OPENsourceTENNIS
   </title>
   <link rel='stylesheet' href='/css/style.css' />
+  <link rel='stylesheet' href='/css/modal.css' />
+  <link rel='stylesheet' href='/css/productos.css' />
   <link rel='stylesheet' href='/css/partials/1header.css' />
   <link rel='stylesheet' href='/css/partials/2footer.css' />
   <link rel="stylesheet" href="/css/carrito.css">
-  <link rel='stylesheet' href='/css/modal.css' />
 
 </head>
 
@@ -21,21 +22,22 @@
     <main>
       <h1>🛒 Tu carrito</h1>
 
-      <div id="carrito" class="carrito">
+      <div class="" id="items_grid">
         <% productos.forEach((producto)=> { %>
-          <div class="item">
+          <div class=" navs nav_raquetas estoy_en_carro" data-id="<%= producto.id %>" id="<%= producto.id %>">
             <img src="<%= producto.imagen %>" alt="<%= producto.nombre %>">
             <p>
               <%= producto.nombre %>
             </p>
             <span>$<%= producto.precio %></span>
-            <span class="cantidad" data-id="<%= producto.id %>">Cantidad: 0</span>
-            <button class="btn_agregar1" data-id="<%= producto.id %>">+1</button>
-            <button class="btn_quitar1" data-id="<%= producto.id %>">-1</button>
+            <button class="btn_agregar1" data-id="<%= producto.id %>">Agregá 1</button>
+            <button class="btn_quitar1" data-id="<%= producto.id %>">Sacas 1?</button>
             <button class="btn_eliminarTodos" data-id="<%= producto.id %>">Eliminar TODOS</button>
+            <span class="cantidad" data-id="<%= producto.id %>">Cantidad: 0</span>
           </div>
           <% }) %>
       </div>
+      <div class="displayNone" id="no_productos_carro"> No tienes productos en tu Carrito</div>
 
       <!--a Controlador de Carrito, via js:  -->
       <form class="formPagar" action="/carrito/pagar" method="post">
@@ -48,10 +50,15 @@
         <button type="button" class="btn_confirmar_modal">Confirmar</button>
         <button type="button" class="btn_cerrar_modal">Cancelar</button>
       </div>
+      <div id="paginacion" class="paginacion displayNone">
+        <button id="btn_anterior">Anterior</button>
+        <button id="btn_siguiente">Siguiente</button>
+      </div>
     </main>
 
     <%- include('./partials/2footer.ejs') %>
       <script src="/js/item.js"></script>
+      <script src="/js/productos.js"></script>
       <script src="/js/carrito.js"></script>
       <script src="/js/header.js"></script>
       <script src="/js/footer.js"></script>

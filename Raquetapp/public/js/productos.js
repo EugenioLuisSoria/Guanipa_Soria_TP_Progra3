@@ -31,6 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
             renderizarPagina();
         }
     });
-
+    
     renderizarPagina();
 });

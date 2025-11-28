@@ -10,6 +10,7 @@
   <link rel='stylesheet' href='/css/style.css' />
   <link rel='stylesheet' href='/css/modal.css' />
   <link rel='stylesheet' href='/css/productos.css' />
+  <link rel='stylesheet' href='/css/items.css' /><!-- se agrega item.css -->
   <link rel='stylesheet' href='/css/partials/1header.css' />
   <link rel='stylesheet' href='/css/partials/2footer.css' />
 </head>
@@ -20,10 +21,10 @@
 
     <main>
 
-      <div id="items_grid">
+      <div id="items_grid1">
         <% producto.forEach((p)=> { %>
           <% if (p.activo){ %>
-            <div class="navs nav_raquetas">
+            <div class="navs nav_raquetas" id="item">
               <p class="nombre">
                 <%= p.nombre %>
               </p>
@@ -36,7 +37,7 @@
               <p class="precio">$<%= p.precio %>
               </p>
               <button class="btn_agregar1" data-id="<%= p.id %>">Agregar al Carrito</button>
-              <button class="btn_quitar1" data-id="<%= p.id %>">-1</button>
+              <button class="btn_quitar1" data-id="<%= p.id %>">Quitar 1</button>
               <button class="btn_eliminarTodos" data-id="<%= p.id %>">Eliminar Todos</button>
               <span class="cantidad" data-id="<%= p.id %>">Cantidad: 0</span>
             </div>

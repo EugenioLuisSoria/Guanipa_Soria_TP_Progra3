@@ -54,7 +54,7 @@
 .btn_agregar1,
 .btn_quitar1,
 .btn_eliminarTodos,
-#btn_anterior, 
+#btn_anterior,
 #btn_siguiente {
   width: 70%;
   text-align: center;
@@ -72,8 +72,8 @@
 .btn_agregar1:hover,
 .btn_quitar1:hover,
 .btn_eliminarTodos:hover,
-#btn_anterior:hover, 
-#btn_siguiente:hover{
+#btn_anterior:hover,
+#btn_siguiente:hover {
   background-color: var(--verde-claro);
 }
 

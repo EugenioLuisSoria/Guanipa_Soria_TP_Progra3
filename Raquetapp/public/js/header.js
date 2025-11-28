@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (nombreUsuarioSTORAGE !== "") {
             const welcome = document.getElementById("welcomeNombre");
-            welcome.textContent = `Welcome to RaquetApp, ${nombreUsuarioSTORAGE}`;
+            welcome.textContent = `Bienvenido a RaquetApp, ${nombreUsuarioSTORAGE}`;
         }
     }
     cargarHeader();
