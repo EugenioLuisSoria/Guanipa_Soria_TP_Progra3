@@ -37,7 +37,7 @@
           </div>
           <% }) %>
       </div>
-      <div class="displayNone" id="no_productos_carro"> No tienes productos en tu Carrito</div>
+      <div class="no_productos_carro displayNone" id="no_productos_carro"> No tienes productos en tu Carrito</div>
 
       <!--a Controlador de Carrito, via js:  -->
       <form class="formPagar" action="/carrito/pagar" method="post">
@@ -46,9 +46,11 @@
         <button class="btnPagar" type="submit">PAGAR</button>
       </form>
       <div class="modal_confirmacion displayNone" id="modal_pagar">
-        <p>Confirmar Pago?</p>
-        <button type="button" class="btn_confirmar_modal">Confirmar</button>
-        <button type="button" class="btn_cerrar_modal">Cancelar</button>
+        <div class="contenidoModal">
+          <p>Confirmar Pago?</p>
+          <button type="button" class="btn_confirmar_modal btn_agregar1">Confirmar</button>
+          <button type="button" class="btn_cerrar_modal btn_agregar1">Cancelar</button>
+        </div>
       </div>
       <div id="paginacion" class="paginacion displayNone">
         <button id="btn_anterior">Anterior</button>
