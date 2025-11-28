@@ -7,10 +7,12 @@
   <title>
     OPENsourceTENNIS
   </title>
+  <link rel='stylesheet' href='/css/modal.css' />
   <link rel='stylesheet' href='/css/style.css' />
   <link rel='stylesheet' href='/css/productos.css' />
   <link rel='stylesheet' href='/css/partials/1header.css' />
   <link rel='stylesheet' href='/css/partials/2footer.css' />
+  <link rel='stylesheet' href='/css/admin/crearProducto.css' />
 </head>
 
 <body>
@@ -19,7 +21,7 @@
 
     <main>
 
-      <form action="" method="POST" enctype="multipart/form-data" class="form_crear_producto">
+      <form action="" method="POST" enctype="multipart/form-data" class="contenidoModal form_crear_producto ">
 
         <label>Nombre</label>
         <input type="text" name="nombre" required />
@@ -28,7 +30,7 @@
         <input type="text" name="descripcion" required />
 
         <label>Imagen</label>
-        <input type="file" name="imagen" accept="image/*"/>
+        <input type="file" name="imagen" accept="image/*" />
 
         <label>Precio</label>
         <input type="number" name="precio" min="0" required />

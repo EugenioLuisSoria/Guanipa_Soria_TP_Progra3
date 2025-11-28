@@ -1,5 +1,5 @@
 /* Modal de bienvenida mejorado */
-.modal_bienvenida {
+.modal_bienvenida, .modalGral {
   position: absolute;
   top: 0;
   left: 0;

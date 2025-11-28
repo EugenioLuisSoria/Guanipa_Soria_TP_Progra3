@@ -7,10 +7,14 @@
   <title>
     OPENsourceTENNIS
   </title>
+  <link rel='stylesheet' href='/css/modal.css' />
+
   <link rel='stylesheet' href='/css/style.css' />
   <link rel='stylesheet' href='/css/productos.css' />
   <link rel='stylesheet' href='/css/partials/1header.css' />
   <link rel='stylesheet' href='/css/partials/2footer.css' />
+  <link rel='stylesheet' href='/css/admin/crearProducto.css' />
+
 </head>
 
 <body>
@@ -20,7 +24,7 @@
     <main>
 
       <form action="/admin/modificarProducto/<%=producto.id%>?_method=PUT" method="POST" enctype="multipart/form-data"
-        class="form_crear_producto">
+        class="contenidoModal form_crear_producto">
 
         <label>Nombre</label>
         <input type="text" name="nombre" value="<%=producto.nombre%>" />

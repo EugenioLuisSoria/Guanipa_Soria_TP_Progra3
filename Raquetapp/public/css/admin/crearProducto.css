@@ -1,0 +1,4 @@
+.form_crear_producto{
+    display: flex;
+    flex-direction: column;
+}

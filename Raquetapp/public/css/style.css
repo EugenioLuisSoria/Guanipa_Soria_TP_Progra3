@@ -69,6 +69,8 @@ nav {
 }
 .nav_raquetas {
   border-radius: 2vh 5vw;
+  align-items: center;
+
 }
 .nav_raquetas:hover {
   filter: drop-shadow(10px 17px 30px rgb(138, 81, 171));
@@ -91,6 +93,6 @@ img {
 h3 {
   font: 2em "Lucida Grande", Helvetica, Arial, sans-serif;
   color: var(--amarillo-oscuro);
-  font-weight: bolder;
+  font-weight: bold;
   text-align: center;
 }
